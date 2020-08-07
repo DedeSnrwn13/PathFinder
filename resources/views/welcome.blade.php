@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <b>Path</b>FInder 
                 </div>
 
                 <div class="links">
