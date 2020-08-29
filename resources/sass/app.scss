@@ -1,1 +1,160 @@
-//
+/* layout navbar dan footer */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+html {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+body {
+    font-family: 'Roboto, Nunito Sans', sans-serif;
+}
+
+.container {
+    max-width: 1280px;
+}
+
+.nav {
+    background-color: #4A4A4A;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 40px;
+    font-family: Roboto Regular;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #FE5E31;
+}
+
+footer a:hover {
+    color: white !important;
+    text-decoration: none;
+}
+
+.navbar-tengah {
+    float: right;
+    margin-top: 5px;
+}
+
+.navbar-tengah a {
+    color: white !important;
+    margin-right: 20px;
+}
+
+.nav-link {
+    font-size: 17px;
+    font-family: Roboto Regular;
+    color: #000 !important;
+}
+
+.nav-link:hover {
+    background-color: #F28C71;
+    border-radius: 10px;
+    color: white !important;
+}
+
+.active {
+    background-color: #F28C71;
+    border-radius: 10px;
+    color: white !important;
+}
+
+.dropdown-item img {
+    width: 35px;
+    height: 35px;
+}
+
+.dropdown-item {
+    padding-left: 17px;
+    span {
+        color: #4A4A4A;
+        padding-left: 5px;
+    }
+}
+
+.dropdown-menu.show {
+    min-width: -1rem;
+    width: 71px;
+}
+
+#toggle {
+    cursor: pointer;
+    margin-top: 13px;
+    width: 35px;
+    height: 15px;
+}
+
+footer {
+    background-color: #4A4A4A;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.foot {
+    color: white;
+    font-size: 70px;
+    font-family: Roboto Regular;
+    padding-top: 20px;
+}
+
+.deskripsi {
+    font-size: 18px;
+    font-family: Roboto Regular;
+}
+
+#right,
+#right1,
+#right2 {
+    padding-top: 30px;
+}
+
+#right h3,
+#right1 h3,
+#right2 h3 {
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+#right p,
+#right1 p,
+#right2 p {
+    font-size: 18px;
+    font-family: Roboto Regular;
+}
+
+p.list {
+    margin-bottom: 0;
+}
+
+p.list a {
+    color: #fff;
+}
+
+.media-social img {
+    width: 45px;
+    height: 45px;
+}
+
+.media-social img:nth-child(2) {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.media-social img:nth-child(3) {
+    margin-right: 5px;
+}
+
+.bahasa {
+    width: 35px;
+    height: 35px;
+    margin-top: 2px;
+}
+
+.copyright {
+    margin-top: 40px;
+    margin-bottom: 0;
+}

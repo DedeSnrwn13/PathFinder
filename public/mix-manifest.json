@@ -1,0 +1,10 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/app-two.css": "/css/app-two.css",
+    "/css/institutions-landing.css": "/css/institutions-landing.css",
+    "/css/institutions-signup.css": "/css/institutions-signup.css",
+    "/css/institutions-signin.css": "/css/institutions-signin.css",
+    "/css/institutions-mystudents.css": "/css/institutions-mystudents.css",
+    "/css/institutions-mystudents-edit.css": "/css/institutions-mystudents-edit.css"
+}

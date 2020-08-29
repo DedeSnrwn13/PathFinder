@@ -12,4 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/app-two.scss', 'public/css')
+    .sass('resources/sass/institutions-landing.scss', 'public/css')
+    .sass('resources/sass/institutions-signup.scss', 'public/css')
+    .sass('resources/sass/institutions-signin.scss', 'public/css')
+    .sass('resources/sass/institutions-mystudents.scss', 'public/css')
+    .sass('resources/sass/institutions-mystudents-edit.scss', 'public/css');

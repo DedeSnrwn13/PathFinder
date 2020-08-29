@@ -1,0 +1,52 @@
+// Institutions Page
+.jumbotron {
+    background: url('../../public/uploads/img/bg-landing.jpg');
+    background-size: cover;
+    background-position: -50px;
+    height: 100vh;
+    margin-bottom: 0px !important;
+    h1 {
+        color: #fff;
+        font-family: Roboto Regular;
+        font-size: 50px;
+        margin-top: 120px;
+        span {
+            color: #F28C71;
+            strong {
+                font-weight: bold;
+            }
+        }
+    }
+    a.register {
+        color: #fff;
+        font-size: 24px;
+        font-family: Roboto Regular;
+        text-transform: uppercase;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 90px;
+        padding-left: 90px;
+        border-radius: 56px;
+        background: #F28C71;
+        margin-top: 200px;
+        margin-bottom: 20px;
+        transition: .3s;
+         :hover {
+            color: #4A4A4A;
+            opacity: .8;
+        }
+    }
+    a.sigin {
+        font-family: Roboto Regular;
+        font-size: 18px;
+        color: #fff;
+        transition: .3s;
+         :hover {
+            text-decoration: white;
+        }
+    }
+}
+
+footer {
+    display: none !important;
+}

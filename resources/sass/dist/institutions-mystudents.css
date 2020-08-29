@@ -1,0 +1,57 @@
+/* layout navbar dan footer */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+body {
+  font-family: "Roboto, Nunito Sans", sans-serif;
+}
+
+.search {
+  margin-top: 40px;
+}
+
+.form-bg {
+  width: 45%;
+  border: 15px solid #FCFCFC;
+  border-radius: 15px;
+  box-shadow: 1px 8px 10px beige;
+}
+
+.tambah {
+  margin-top: 55px;
+}
+
+.tabel,
+.edit,
+.del {
+  font-size: 11px !important;
+  font-family: Roboto Regular;
+}
+
+.card-body {
+  border: 15px solid #FCFCFC;
+  border-radius: 15px;
+  box-shadow: 1px 8px 10px beige;
+}
+
+.upload {
+  cursor: pointer;
+  border-radius: 4px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #FE5E31 !important;
+  color: #FFFFFF !important;
+  border: none;
+}
+
+.matric {
+  border-radius: 3px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #DCE6EB;
+}
+
+form {
+  margin-block-end: 0;
+}
