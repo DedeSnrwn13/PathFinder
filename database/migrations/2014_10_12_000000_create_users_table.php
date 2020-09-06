@@ -16,12 +16,12 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            // $table->foreignId('institution_id')->constrained('institution')->onDelete('cascade')->onUpdate('cascade');
-            // $table->bigInteger('institution_id')->unsigned();
-            $table->string('role')->nullable();
+            $table->string('role');
+            $table->string('institution_name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('password_confirmation')->nullable();
             $table->string('activation_code')->nullable();
             $table->boolean('active')->default(0);
 
@@ -29,10 +29,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        // Schema::table('users', function (Blueprint $table) {
-        //     $table->foreign('institution_id')->references('id')->on('institution')
-        //         ->onDelete('cascade')->onUpdate('cascade');
-        // });
     }
 
     /**

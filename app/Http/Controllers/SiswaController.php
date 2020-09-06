@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
+use App\Imports\SiswaImport;
+use Illuminate\Auth\EloquentUserProvider;
+use imporexcel;
 use App\Siswa;
 use App\User;
+use League\CommonMark\Extension\Table\Table;
 use App\Institution;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -13,7 +18,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use Maatwebsite\Excel\Importer;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Cache;
+use Yajra\Datatables\Services\DataTable;
 class SiswaController extends Controller
 {
     public function index(Request $request) {
@@ -32,9 +40,9 @@ class SiswaController extends Controller
                                     ->orWhere('age', 'LIKE', '%'.$request->cari.'%')
                                     ->orWhere('expertise', 'LIKE', '%'.$request->cari.'%')
                                     ->orWhere('experience', 'LIKE', '%'.$request->cari.'%')
-                                    ->paginate(5);
+                                    ->paginate(20);
         } else {
-            $data_siswa = \App\Siswa::paginate(5);
+            $data_siswa = \App\Siswa::paginate(20);
             $institution = \App\Institution::all();
         }
 
@@ -66,11 +74,11 @@ class SiswaController extends Controller
 
         //insert ke table user
         $user = new \App\User;
-        // $user->institution_id = $user->institution_id; //$request->add(['institution_id' => [$user->id, $user => 'admin']]);
-        $user->role           = 'siswa';
-        $user->email          = $request->email;
-        $user->password       = bcrypt('secret');
-        $user->remember_token = Str::random(60);
+        $user->institution_name = $user->institution_id; //$request->add(['institution_id' => [$user->id, $user => 'admin']]);
+        $user->role             = 'siswa';
+        $user->email            = $request->email;
+        $user->password         = bcrypt('secret');
+        $user->remember_token   = Str::random(60);
         $user->save();
 
         // insert ke table siswa
@@ -119,12 +127,45 @@ class SiswaController extends Controller
         return redirect('/institutions/dashboard')->with('sukses','Data berhasil di delete');
     }
 
-    public function imporexel(Request $request)
+    public function importexcel(Request $request)
     {
         $this->validate($request, [
-            'import_exel' => 'required|file',
+            'import_excel' => 'required|mimes:csv,xls,xlsx',
         ]);
 
-        dd($request->all());
+        // Excel::import(new SiswaImport, $request->file());
+        // return Excel::import(new \App\Imports\SiswaImport, request()->file('data_siswa'));
+        // (new SiswaImport)->import('users.xlsx', null, \Maatwebsite\Excel\Excel::XLSX);
+
+        // menangkap file excel
+        $file = $request->file('import_excel');
+
+        // membuat nama file unik
+        $nama_file = rand().$file->getClientOriginalName();
+
+        // upload ke folder file_siswa di dalam folder public
+        $file->move('file_siswa',$nama_file);
+
+        // import data
+        Excel::import(new SiswaImport, public_path('file_siswa/'.$nama_file));
+
+        // notifikasi dengan session
+        Session::flash('suksesupload','You have successfully added the studens data');
+
+
+        // alihkan halaman kembali
+        return redirect('/institutions/dashboard')->with('sukses', 'You have successfully added the studens data');
     }
+
+    // public function getdatasiswa()
+    // {
+    //     $siswa = Siswa::select(['institution_id','avatar', 'firstname', 'lastname', 'email', 'gender', 'religion', 'address', 'major', 'major_average', 'age', 'expertise', 'experience']);
+
+    //     // return Datatables::eloquent($siswa)->toJson();
+    //     return datatables()->eloquent($siswa)
+    //     ->addColumn('action', function($s) {
+    //         return '<a href="#" class="btn btn-warning btn-sm">Edit</a>';
+    //     })
+    //     ->toJson();
+    // }
 }

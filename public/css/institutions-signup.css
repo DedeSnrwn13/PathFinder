@@ -80,3 +80,99 @@ img.showpw {
   margin-right: 0 !important;
 }
 
+/*style untuk popup */
+
+#popup {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  z-index: 99999999999;
+  transition: all 1s;
+}
+
+.popup-container {
+  box-sizing: border-box;
+  max-width: 70%;
+  position: relative;
+  margin: 16% auto;
+  padding: 35px 50px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.popup-container form {
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+/* style untuk isi popup */
+
+.popup-form {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.popup-form span {
+  font-size: 20px;
+  font-family: Roboto Regular;
+  color: #3D464D;
+}
+
+.popup-form p {
+  font-size: 18px;
+  font-family: Roboto Regular;
+  color: #3D464D;
+  margin-top: 20px;
+}
+
+.sukesregister {
+  display: flex;
+  padding-left: 183px;
+  padding-right: 183px;
+}
+
+.sukesregister input {
+  padding: 10px 70px;
+  text-align: center;
+  border-radius: 18px;
+  font-size: 16px;
+}
+
+#send_again {
+  margin-right: 20px;
+}
+
+#sign_in {
+  margin-left: 20px;
+}
+
+.popup-form .sukesregister input:focus {
+  outline-color: #667E90;
+}
+
+.popup-form .sukesregister input[type=submit] {
+  background-color: #667E90;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+.popup-form .sukesregister a {
+  background-color: #667E90;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 70px;
+  text-align: center;
+  border-radius: 18px;
+  font-size: 16px;
+}
+
+.popup-form .sukesregister a:focus {
+  outline-color: #667E90;
+}
+

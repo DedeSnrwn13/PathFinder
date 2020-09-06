@@ -9,7 +9,9 @@ class Siswa extends Model
 {
     protected $table = 'siswa';
 
-    protected $fillable = ['user_id', 'institution_id', 'avatar', 'firstname', 'lastname', 'email', 'gender', 'religion', 'address', 'major', 'major_average', 'age', 'expertise', 'experience'];
+    protected $fillable = [
+        'user_id', 'institution_id', 'avatar', 'firstname', 'lastname', 'email', 'gender', 'religion', 'address', 'major', 'major_average', 'age', 'expertise', 'experience'
+    ];
 
     public function getAvatar()
     {

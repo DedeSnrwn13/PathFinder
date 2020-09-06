@@ -17,7 +17,7 @@ class CreateSiswaTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             // $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->nullable()->unsigned();
             $table->bigInteger('institution_id')->unsigned();
             $table->string('avatar')->nullable();
             $table->string('firstname');
@@ -36,10 +36,8 @@ class CreateSiswaTable extends Migration
         });
 
         Schema::table('siswa', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')
-            ->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('institution_id')->references('id')->on('institution')
-                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('institution_id')->references('id')->on('institution')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

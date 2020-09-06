@@ -29,7 +29,7 @@
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-secondary text-center" id="btn_signin">SIGN IN</button>
-                    <a href="/institutions/register" id="btn_signup">Tidak punya akun?</a>
+                    <a href="/institutions/register" id="btn_signup">Don't have an account?</a>
                 </div>
             </form>
         </div>
@@ -39,6 +39,12 @@
 
 @section('footer')
 <script>
+    @if(Session::has('successMsg'))
+    swal({
+        text: "Hello world!",
+    });
+    @endif
+
     function myFunction() {
         var pw1 = document.getElementById("inputpassword");
 

@@ -72,9 +72,11 @@
                             <textarea name="address" class="form-control" id="InputAddress" rows="3">{{ $siswa->address }}</textarea>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group ">
                             <label for="InputInstitution">Institution</label>
-                            <input name="institution" type="text" class="form-control" id="InputInstitution" placeholder="Enter Institution" value="{{ $siswa->institution }}">
+                            <select name="institution_id" class="custom-select">
+                                <option value="{{ $siswa->institution_id }}" @if($siswa->institution_id == '{{ $siswa->institution->id }}') selected @endif>{{ $siswa->institution->name }}</option>
+                            </select>
                         </div>
 
                         <div class="form-group">

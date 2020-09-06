@@ -32,12 +32,11 @@ Auth::routes(['verify' => true ]);
 Route::get('/', 'FrontController@home');
 
 Route::get('/institutions/register', 'AuthController@register')->name('register');
-Route::post('/institutions/postregister', 'AuthController@postregister');
+Route::post('/institutions/postregister', 'AuthController@postregister')->name('post.register');
 Route::get('/institutions/register/activate/{code}', 'AuthController@activate')->name('register.activate');
 
 Route::get('/institutions/login', 'AuthController@index')->name('login');
 Route::post('/institutions/postlogin', 'AuthController@postlogin');
-Route::post('/institutions/logout', 'AuthController@logout');
 
 
 
@@ -50,15 +49,18 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
     Route::get('/institutions/dashboard/{siswa}/delete', 'SiswaController@delete');
 
     // mystudent upload
-    Route::post('/institutions/dashboard/importxlsx', 'SiswaController@imporexel')->name('siswa.import');
+    Route::post('/institutions/dashboard/importxlsx', 'SiswaController@importexcel')->name('siswa.import');
 
 });
 
 
 Route::group(['middleware' => ['auth', 'checkRole:admin, siswa']], function() {
     // dashboard
-    Route::get('/institutions/dashboard', 'SiswaController@index');
+    Route::get('/institutions/logout', 'AuthController@logout')->name('institution.logout');
+    // Route::get('/institutions/dashboard', 'SiswaController@index');
 });
+
+Route::get('getdatasiswa', 'SiswaController@getdatasiswa')->name('ajax.get.data.siswa');
 
 
 

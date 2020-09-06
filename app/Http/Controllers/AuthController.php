@@ -6,6 +6,7 @@ use App\User;
 use App\Institution;
 use App\Mail\SendMail;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrationRequest;
 use App\Http\Requests\LoginRequest;
@@ -45,11 +46,12 @@ class AuthController extends Controller
         // insert ke table user
         $user = new \App\User;
         // $user->institution_id = $institution->id;
-        $user->role            = 'admin';
-        $user->email           = $request->email;
-        $user->password        = bcrypt($request->password);
-        $user->activation_code = Str::random(60).$request->email;
-        $user->remember_token  = Str::random(60);
+        $user->institution_name = $request->name;
+        $user->role             = 'admin';
+        $user->email            = $request->email;
+        $user->password         = bcrypt($request->password);
+        $user->activation_code  = Str::random(60).$request->email;
+        $user->remember_token   = Str::random(60);
         $user->save();
 
         // insert ke table institution
@@ -69,9 +71,10 @@ class AuthController extends Controller
 
         $this->sendEmail($data, $institution);
 
-        // dd($request->all());
-
-        return redirect('/institutions/login');
+        // notifikasi dengan session
+        // Session::flash('suksesregister');
+        return redirect('/institutions/register')->with('suksesregister', 'You have successfully joined');
+        // return redirect()->back();
     }
 
     public function sendEmail($data, $institution)
