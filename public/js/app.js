@@ -19388,6 +19388,28 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/bg.scss":
+/*!********************************!*\
+  !*** ./resources/sass/bg.scss ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/candidate.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/candidate.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/institutions-landing.scss":
 /*!**************************************************!*\
   !*** ./resources/sass/institutions-landing.scss ***!
@@ -19443,10 +19465,186 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/jobseekers-signin.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/jobseekers-signin.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/jobvacancy.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/jobvacancy.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/login_employer.scss":
+/*!********************************************!*\
+  !*** ./resources/sass/login_employer.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/navbar.scss":
+/*!************************************!*\
+  !*** ./resources/sass/navbar.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/onlineinterview.scss":
+/*!*********************************************!*\
+  !*** ./resources/sass/onlineinterview.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/onlineinterviewvideo.scss":
+/*!**************************************************!*\
+  !*** ./resources/sass/onlineinterviewvideo.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/onlinetesting.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/onlinetesting.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/onlinetestingresult.scss":
+/*!*************************************************!*\
+  !*** ./resources/sass/onlinetestingresult.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pilihan.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/pilihan.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/pro.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/pro.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/profile.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/profile.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/register_employer.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/register_employer.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/signup.scss":
+/*!************************************!*\
+  !*** ./resources/sass/signup.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/style.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/style.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/style_black.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/style_black.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/talentsearch.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/talentsearch.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/app-two.scss ./resources/sass/institutions-landing.scss ./resources/sass/institutions-signup.scss ./resources/sass/institutions-signin.scss ./resources/sass/institutions-mystudents.scss ./resources/sass/institutions-mystudents-edit.scss ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/app-two.scss ./resources/sass/institutions-landing.scss ./resources/sass/institutions-signup.scss ./resources/sass/institutions-signin.scss ./resources/sass/institutions-mystudents.scss ./resources/sass/institutions-mystudents-edit.scss ./resources/sass/bg.scss ./resources/sass/profile.scss ./resources/sass/pro.scss ./resources/sass/talentsearch.scss ./resources/sass/style.scss ./resources/sass/navbar.scss ./resources/sass/candidate.scss ./resources/sass/jobvacancy.scss ./resources/sass/login_employer.scss ./resources/sass/onlineinterview.scss ./resources/sass/onlineinterviewvideo.scss ./resources/sass/onlinetesting.scss ./resources/sass/onlinetestingresult.scss ./resources/sass/register_employer.scss ./resources/sass/signup.scss ./resources/sass/jobseekers-signin.scss ./resources/sass/style_black.scss ./resources/sass/pilihan.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19457,7 +19655,25 @@ __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\institutions-l
 __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\institutions-signup.scss */"./resources/sass/institutions-signup.scss");
 __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\institutions-signin.scss */"./resources/sass/institutions-signin.scss");
 __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\institutions-mystudents.scss */"./resources/sass/institutions-mystudents.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\institutions-mystudents-edit.scss */"./resources/sass/institutions-mystudents-edit.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\institutions-mystudents-edit.scss */"./resources/sass/institutions-mystudents-edit.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\bg.scss */"./resources/sass/bg.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\profile.scss */"./resources/sass/profile.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\pro.scss */"./resources/sass/pro.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\talentsearch.scss */"./resources/sass/talentsearch.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\navbar.scss */"./resources/sass/navbar.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\candidate.scss */"./resources/sass/candidate.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\jobvacancy.scss */"./resources/sass/jobvacancy.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\login_employer.scss */"./resources/sass/login_employer.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\onlineinterview.scss */"./resources/sass/onlineinterview.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\onlineinterviewvideo.scss */"./resources/sass/onlineinterviewvideo.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\onlinetesting.scss */"./resources/sass/onlinetesting.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\onlinetestingresult.scss */"./resources/sass/onlinetestingresult.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\register_employer.scss */"./resources/sass/register_employer.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\signup.scss */"./resources/sass/signup.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\jobseekers-signin.scss */"./resources/sass/jobseekers-signin.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\style_black.scss */"./resources/sass/style_black.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\pilihan.scss */"./resources/sass/pilihan.scss");
 
 
 /***/ })

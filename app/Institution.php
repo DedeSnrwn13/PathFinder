@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Siswa;
+use App\User;
 
 
 class Institution extends Model
@@ -12,32 +12,20 @@ class Institution extends Model
 
     protected $table = 'institution';
 
-    protected $fillable = ['name', 'avatar', 'firstname', 'lastname', 'contact', 'address', 'email', 'password', 'password_confirmation'];
+    protected $fillable = ['user_id', 'nama_sekolah', 'logo_institusi', 'no_hp', 'alamat', 'email'];
 
     protected $casts = ['email_verified_at' => 'datetime'];
 
-    protected $hidden = ['password', 'password_confirmation', 'remember_token'];
+    protected $hidden = ['remember_token'];
 
-
-
-    // public function user()
-    // {
-    //     return $this->belongsTo('App\User', 'id');
-    // }
-
-    public function siswa()
+    public function users()
     {
-        return $this->hasMany(Siswa::class);
+        return $this->belongsTo('App\User', 'user_id');
     }
 
-    // public function user()
-    // {
-    //     return $this->hasMany(Siswa::class);
-    // }
-
-    public function fullname()
+    public function nama_lengkap()
     {
-        return $this->firstname.' '.$this->lastname;
+        return $this->nama_depan.' '.$this->nama_belakang;
     }
 
 }

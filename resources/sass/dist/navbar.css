@@ -1,0 +1,13 @@
+.navbar-light .navbar-brand {
+  color: tomato;
+}
+
+.dropdown {
+  float: right;
+  margin-top: 3%;
+}
+
+.nama {
+  background-color: #F9C9BC !important;
+  border: #F9C9BC !important;
+}

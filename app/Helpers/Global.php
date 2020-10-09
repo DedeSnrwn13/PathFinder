@@ -1,11 +1,11 @@
 <?php
 
-use App\Siswa;
+use App\Pelamar;
 use App\Institution;
 
 function totalSiswa()
 {
-    return Siswa::count();
+    return Pelamar::count();
 }
 
 function totalGuru()

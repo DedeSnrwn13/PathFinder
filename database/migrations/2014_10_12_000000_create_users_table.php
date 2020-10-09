@@ -16,18 +16,27 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('role');
-            $table->string('institution_name')->nullable();
+            // $table->bigInteger('role_id')->unsigned();
+            // $table->string('role');
+            $table->string('nama_depan');
+            $table->string('nama_belakang')->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('password_confirmation')->nullable();
             $table->string('activation_code')->nullable();
             $table->boolean('active')->default(0);
+            $table->string('created_by');
+            $table->date('created_date');
+            $table->string('updated_by');
+            $table->date('updated_date');
 
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('no action');
+
+        // });
 
     }
 

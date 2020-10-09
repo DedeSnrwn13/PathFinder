@@ -2,7 +2,8 @@
 
 namespace App;
 
-use App\Siswa;
+use App\Institution;
+use App\Roles;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -19,8 +20,10 @@ class User extends Model implements AuthenticatableContract,CanResetPasswordCont
      *
      * @var array
      */
+    // protected $table = 'users';
+
     protected $fillable = [
-        'institution_name', 'role', 'email', 'password', 'activation_code', 'active',
+        'nama_depan','nama_belakang', 'email', 'password', 'activation_code', 'active', 'created_by', 'created_date', 'updated_by', 'updated_date',
     ];
 
     /**
@@ -41,15 +44,36 @@ class User extends Model implements AuthenticatableContract,CanResetPasswordCont
         'email_verified_at' => 'datetime',
     ];
 
-    public function siswa()
-    {
-    	return $this->hasOne(Siswa::class);
+    public function roles() {
+        return $this->hasOne('App\Roles');
     }
 
-    // public function institution()
-    // {
-    // 	return $this->belongsTo(Institution::class);
+    // public function role() {
+    //     return $this->belongsTo(UserRole::class);
     // }
+
+    // public function roles() {
+    //     return $this->belongsToMany(UserRole::class);
+    // }
+
+    // public function hasRole($role) {
+    //     return null !== $this->roles()->where('name', $role)->first();
+    // }
+
+    // public function hasManyRole($roles) {
+    //     return null !== $this->roles()->whereIn('name', $roles)->first();
+    // }
+
+    // public function authorizeRoles($roles) {
+    //     if(is_array($roles)) {
+    //         return $this->hasManyRole($roles) || redirect()->route('/');
+    //     }
+    //     return $this->hasRole($roles) || redirect()->route('/');
+    // }
+
+    public function institution() {
+        return $this->hasMany('App\Institution');
+    }
 
     public function activateAccount($code)
     {

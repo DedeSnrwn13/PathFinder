@@ -1,0 +1,67 @@
+.bg {
+    background-image: url('../../public/uploads/img/Group 1436.jpg');
+    background-position: -13em;
+    // background-size: cover;
+    .cardlogin {
+        border: 2px solid #667E90;
+        padding: 5% 10%;
+        margin-top: 100px;
+        border-radius: 25px;
+        margin-bottom: 15%;
+        #judul {
+            color: #667E90;
+            margin-top: 5px;
+        }
+
+        .form-group {
+            input {
+                border-radius: 15px;
+                border: 1px solid #707070;
+                box-shadow: 0 1px 2px #707070;
+                margin-top: 30px;
+            }
+
+            .tombol {
+                float: right;
+                margin-top: -28px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+        }
+
+        #emailHelp {
+            margin-top: 20px;
+        }
+        .btn {
+            margin: 20px 18.5%;
+            width: 250px;
+        }
+        #btn_signin {
+            border-radius: 8px;
+        }
+    }
+
+    #judulkanan {
+        color: white;
+        margin-top: 25px;
+        float: right;
+
+    }
+    .kontenkanan {
+        float: right;
+        margin-top: 5%;
+        background-color: white;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        margin-right: -50px;
+        h4 {
+            font-size: 30px;
+            padding: 10px;
+            padding-right: 50px;
+        }
+    }
+}
+
+
+
+

@@ -2,135 +2,224 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Session;
 use App\Imports\SiswaImport;
-use Illuminate\Auth\EloquentUserProvider;
-use imporexcel;
-use App\Siswa;
+
+use App\Pelamar;
 use App\User;
-use League\CommonMark\Extension\Table\Table;
-use App\Institution;
+use App\Pendidikan;
+use App\Pekerjaan;
+use App\Roles;
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rule;
-use RealRashid\SweetAlert\Facades\Alert;
-use Maatwebsite\Excel\Importer;
 use Maatwebsite\Excel\Facades\Excel;
-use Illuminate\Support\Facades\Cache;
 use Yajra\Datatables\Services\DataTable;
+
 class SiswaController extends Controller
 {
     public function index(Request $request) {
 
-        if($request->has('cari')) {
-            $data_siswa = \App\Siswa::orderBy('id', 'DESC')
-                                    ::where('firstname', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('lastname', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('email', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('gender', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('religion', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('address', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('institution', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('major', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('major_average', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('age', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('expertise', 'LIKE', '%'.$request->cari.'%')
-                                    ->orWhere('experience', 'LIKE', '%'.$request->cari.'%')
+        if($request->has('search')) {
+            $data_siswa = \App\Pelamar::where('nama', 'LIKE', '%'.$request->search.'%')
+                                    ->orWhere('email', 'LIKE', '%'.$request->search.'%')
+                                    ->orWhere('gender', 'LIKE', '%'.$request->search.'%')
+                                    ->orWhere('agama', 'LIKE', '%'.$request->search.'%')
+                                    ->orWhere('tempat_lahir', 'LIKE', '%'.$request->search.'%')
+                                    ->orWhere('tanggal_lahir', 'LIKE', '%'.$request->search.'%')
+                                    ->orWhere('pekerjaan_yang_akan_dilamar', 'LIKE', '%'.$request->search.'%')
                                     ->paginate(20);
         } else {
-            $data_siswa = \App\Siswa::paginate(20);
-            $institution = \App\Institution::all();
+            $data_siswa = \App\Pelamar::paginate(20);
+            $institution = \App\Institution::find(1);
         }
 
 
-        return view('institutions.mystudents', compact('data_siswa', 'institution'));
+        return view('institutions.mystudents', compact('data_siswa'));
     }
 
-    public function create(Request $request)
+    public function add()
     {
-        // dd($request->all());
-        // buat validasi
-        $this->validate($request, [
-            'avatar'        => 'file|image|mimes:png,jpg,jpeg|max:2048',
-            'firstname'     => 'required|min:2|',
-            'email'         => 'required|email|unique:users',
-            'gender'        => 'required',
-            'religion'      => 'required',
-            'address'       => 'required|string|max:225',
-            'major'         => 'required',
-            'major_average' => 'required|numeric',
-            'age'           => 'required|numeric',
-            'expertise'     => 'required|string|max:100',
-            'experience'    => 'required|numeric',
-            'institution_id' => 'required',
-        ]);
+        return view('institutions.create');
+    }
 
-        // $user = User::create($request->all());
-        // $siswa = Siswa::create($request->all());
+    public function postcreate(Request $request)
+    {
+        // buat validasi
 
         //insert ke table user
-        $user = new \App\User;
-        $user->institution_name = $user->institution_id; //$request->add(['institution_id' => [$user->id, $user => 'admin']]);
-        $user->role             = 'siswa';
-        $user->email            = $request->email;
-        $user->password         = bcrypt('secret');
+        $this->validate($request, [
+            'user_id'                    => 'required|integer',
+            'avatar'                     => 'file|image|mimes:png,jpg,jpeg|max:2048',
+            'nama'                       => 'required|string|min:2|max:25',
+            'tempat_lahir'               => 'required|string|max:25',
+            'tanggal_lahir'              => 'required|date|max:25',
+            'gender'                     => 'nullable|string|max:10',
+            'agama'                      => 'nullable|string|max:20',
+            'alamat'                     => 'required|string|max:100',
+            'email'                      => 'required|email|unique:users|max:100',
+            'agama'                      => 'nullable|string|max:20',
+            'pekerjaan_id'               => 'required|integer',
+            'pendidikan_id'              => 'required|integer',
+            'mingaji'                    => 'required|string',
+            'maxgaji'                    => 'required|string',
+            'pekerjaan_yang_akan_dilamar' => 'required|string|max:50',
+            'nama_depan'                 => 'required|string|min:2|max:25',
+            'nama_belakang'              => 'nullable|tring|min:2|max:25',
+            'email'                      => 'required|email|unique:users|max:100',
+            'created_by'                 => 'required|string|max:25',
+            'created_date'               => 'required',
+            'updated_by'                 => 'required_with:created_by|same:created_by|string|max:25',
+            'updated_date'               => 'required',
+            'nama_perusahaan'            => 'nullable|string|max:50',
+            'jabatan'                    => 'nullable|string|max:50',
+            'mulai_kerja'                => 'nullable|date|max:25',
+            'berakhir_kerja'             => 'nullable|date|max:25',
+            'nama_sekolah'               => 'required|string|max:100',
+            'jenjang_pendidikan'         => 'required|string|max:5',
+            'jurusan'                    => 'required|string|max:50',
+            'nilai'                      => 'required|numeric',
+            'mulai_pendidikan'           => 'required|date|max:25',
+            'selesai_pendidikan'         => 'required|date|max:25',
+        ]);
+
+        $data = $request->all();
+        // dd($data);
+
+        $user = new \App\User();
+        $user->nama_depan       = $data['nama'];
+        $user->email            = $data['email'];
+        $user->password         = bcrypt('allsecrets');
+        $user->activation_code  = Str::random(60).$data['email'];
         $user->remember_token   = Str::random(60);
+        $user->created_by       = $data['created_by'];
+        $user->created_date     = date("Y-m-d H:i");
+        $user->updated_by       = $data['updated_by'];
+        $user->updated_date     = date("Y-m-d H:i");
         $user->save();
+        // $user = \App\User::create();
 
-        // insert ke table siswa
+
+        // insert ke table roles
+        $roles = new \App\Roles();
+        $roles->user_id     = $user->id;
+        $roles->name        = $data['nama'];
+        $roles->description = 'pelamar';
+        $roles->save();
+        // $roles = \App\Roles::create();
+
+         // insert ke tabel pekerjaan
+         $pekerjaan = new \App\Pekerjaan();
+         $pekerjaan->nama_perusahaan = $data['nama_perusahaan'];
+         $pekerjaan->posisi          = $data['posisi'];
+         $pekerjaan->mulai_kerja     = $data['mulai_kerja'];
+         $pekerjaan->berakhir_kerja  = $data['berakhir_kerja'];
+         $pekerjaan->save();
+         // $pekerjaan = \App\Pekerjaan::create();
+
+
+         // insert ke tabel pendidikan
+         $pendidikan = new \App\Pendidikan();
+         $pendidikan->nama_sekolah       = $data['nama_sekolah'];
+         $pendidikan->jenjang_pendidikan = $data['jenjang_pendidikan'];
+         $pendidikan->jurusan            = $data['jurusan'];
+         $pendidikan->nilai              = $data['nilai'];
+         $pendidikan->mulai_pendidikan   = $data['mulai_pendidikan'];
+         $pendidikan->selesai_pendidikan = $data['selesai_pendidikan'];
+         $pendidikan->save();
+         // $pendidikan = \App\Pendidikan::create();
+
+        // insert ke table Pelamar
         // $isntitution = Institution::findBy('id', 'institution_id');
-        // $request->request->add(['institution_id' => $institution->id]);
-        $request->request->add(['user_id' => $user->id]);
 
-        $siswa = \App\Siswa::create($request->all());
+        $pelamar = new \App\Pelamar();
+        $pelamar->user_id                       = $user->id;
+        $pelamar->nama                          = $data['nama'];
+        $pelamar->email                         = $data['email'];
+        $pelamar->gender                        = $data['gender'];
+        $pelamar->tempat_lahir                  = $data['tempat_lahir'];
+        $pelamar->tanggal_lahir                 = $data['tanggal_lahir'];
+        $pelamar->agama                         = $data['agama'];
+        $pelamar->pekerjaan_id                  = $pekerjaan->id;
+        $pelamar->pendidikan_id                 = $pendidikan->id;
+        $pelamar->mingaji                       = $data['mingaji'];
+        $pelamar->maxgaji                       = $data['maxgaji'];
+        $pelamar->pekerjaan_yang_akan_dilamar   = $data['pekerjaan_yang_akan_dilamar'];
+        $pelamar->save();
+        // $pelamar = \App\Pelamar::create();
 
         if($request->hasFile('avatar')) {
             $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
-            $siswa->avatar = $request->file('avatar')->getClientOriginalName();
-            $siswa->save();
+            $pelamar->avatar = $request->file('avatar')->getClientOriginalName();
+            $pelamar->save();
         }
 
-        return redirect('/institutions/dashboard')->with('sukses','Data berhasil di input');
+        return redirect('/institutions/dashboard');
     }
 
-    public function edit(Siswa $siswa)
+    public function edit(Pelamar $pelamar)
     {
-        // $siswa = \App\Siswa::find($id);
+        // $pelamar = \App\pelamar::find($id);
 
-        return view('institutions.edit', compact('siswa'));
+        return view('institutions.edit', compact('pelamar'));
     }
 
-    public function update(Request $request, Siswa $siswa)
+    public function update(Request $request, Pelamar $pelamar)
     {
         // dd($request->all());
         // $siswa = \App\Siswa::find($id);
-        $siswa->update($request->all());
+        $pelamar->update($request->all());
+
+        // $pendidikan = Pendidikan::findOrFail();
+        $pendidikan = new \App\Pendidikan;
+        // $pendidikan = new \App\Pendidikan;
+        $pendidikan->nama_sekolah       = $request->nama_sekolah;
+        $pendidikan->jenjang_pendidikan = $request->jenjang_pendidikan;
+        $pendidikan->jurusan            = $request->jurusan;
+        $pendidikan->nilai              = $request->nilai;
+        $pendidikan->mulai_pendidikan   = $request->mulai_pendidikan;
+        $pendidikan->selesai_pendidikan = $request->selesai_pendidikan;
+        $pendidikan->save();
+
+        // $pekerjaan->update($request->all());
 
         if($request->hasFile('avatar')) {
             $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
-            $siswa->avatar = $request->file('avatar')->getClientOriginalName();
-            $siswa->save();
+            $pelamar->avatar = $request->file('avatar')->getClientOriginalName();
+            $pelamar->save();
         }
+
 
         return redirect('/institutions/dashboard')->with('sukses','Data berhasil di update');
     }
 
-    public function delete(Siswa $siswa)
+    public function delete(Pelamar $pelamar)
     {
         // $siswa = \App\Siswa::find($id);
-        $siswa->delete();
+        $pelamar->delete();
 
         return redirect('/institutions/dashboard')->with('sukses','Data berhasil di delete');
     }
 
+    // public function downloadexcel() {
+    //     $downloads = DB::table('downloadexcel')->get();
+    //     dd($downloads);
+    //     return view('institutions.mystudents', compact('downloads'));
+    // }
+
+    // public function downloadExcel()
+    // {
+    //     $path = storage_path('public\DataSiswa.xlsx');
+
+    //     return response()->download($path);
+    // }
+
     public function importexcel(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
-            'import_excel' => 'required|mimes:csv,xls,xlsx',
+            'import_excel' => 'required|mimes:csv,xls,xlsx|max:5000',
         ]);
 
         // Excel::import(new SiswaImport, $request->file());
@@ -150,11 +239,11 @@ class SiswaController extends Controller
         Excel::import(new SiswaImport, public_path('file_siswa/'.$nama_file));
 
         // notifikasi dengan session
-        Session::flash('suksesupload','You have successfully added the studens data');
+        // Session::flash('suksesupload','You have successfully added the studens data');
 
 
         // alihkan halaman kembali
-        return redirect('/institutions/dashboard')->with('sukses', 'You have successfully added the studens data');
+        return redirect('/institutions/dashboard')->with('suksesupload', 'You have successfully added the studens data');
     }
 
     // public function getdatasiswa()

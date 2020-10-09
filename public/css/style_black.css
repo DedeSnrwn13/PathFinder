@@ -1,0 +1,126 @@
+html {
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+* {
+  font-family: roboto;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.nav {
+  background-color: #4A4A4A;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #FE5E31;
+}
+
+footer a:hover {
+  color: white !important;
+  text-decoration: none;
+}
+
+.navbar-tengah {
+  float: right;
+  margin-top: 5px;
+}
+
+.navbar-tengah a {
+  color: white !important;
+  margin-right: 20px;
+}
+
+.nav-link {
+  font-size: 17px;
+  font-family: roboto;
+  color: #000 !important;
+}
+
+.nav-link:hover {
+  background-color: #F28C71;
+  border-radius: 10px;
+  color: white !important;
+}
+
+.active {
+  background-color: #F28C71;
+  border-radius: 10px;
+  color: white !important;
+}
+
+footer {
+  background-color: #4A4A4A;
+  color: white;
+  margin-top: 100px;
+  bottom: 0;
+}
+
+.foot {
+  color: white;
+  font-size: 55px;
+  margin-top: 20px;
+  float: left;
+  margin-left: 130px;
+}
+
+.list {
+  font-size: 15px;
+}
+
+.list a {
+  color: white;
+}
+
+.deskripsi {
+  float: left;
+  font-size: 15px;
+  margin-top: -10px;
+  margin-left: 130px;
+}
+
+#right {
+  margin-top: 40px;
+  margin-left: 120px;
+}
+
+#right1 {
+  margin-top: 40px;
+}
+
+.bahasa {
+  width: 35px;
+  height: 35px;
+  margin-top: 2px;
+}
+
+.dropdown-item img {
+  width: 35px;
+  height: 35px;
+}
+
+.dropdown-item {
+  padding-left: 17px;
+}
+
+.dropdown-menu.show {
+  min-width: -1rem;
+  width: 71px;
+}
+
+#toggle {
+  cursor: pointer;
+  margin-top: 13px;
+  width: 35px;
+  height: 15px;
+}
+

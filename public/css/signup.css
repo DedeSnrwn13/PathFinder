@@ -1,0 +1,13 @@
+.cardlogin {
+  margin: 0 auto;
+  width: 40%;
+  border: 2px solid #667E90;
+  padding: 50px;
+}
+
+.bg {
+  background-image: url(/images/bg-signup.jpg?7472dd32d3eafb84c37adfe528975f91);
+  background-size: 80% 80%;
+  background-size: center;
+}
+

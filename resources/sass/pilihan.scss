@@ -1,0 +1,33 @@
+.container{
+    max-width: 1280px;
+}
+
+h1{
+    color: #FE5E31;
+    margin-top: 2%;
+}
+
+p{
+    text-align: center;
+    margin-top: 15%;
+}
+
+.pilihan{
+    margin-left: 33.5%;
+}
+
+a{
+    margin-left: 4%;
+}
+
+button{
+    width: 120%;
+    border: 1px solid #FE5E31;
+    height: 40px;
+    background-color: white;
+}
+
+button:hover{
+    background-color: #FE5E31;
+    color: white;
+}

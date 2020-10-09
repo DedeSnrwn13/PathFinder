@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<link href="{{ asset('css/institutions-signup.css') }}" rel="stylesheet">
+@section('css')
+    <link href="{{ asset('css/institutions-signup.css') }}" rel="stylesheet">
+@endsection
 @section('title', 'Institutions | Sign Up')
 
 @section('content')
@@ -8,11 +10,12 @@
     {{-- <div id="closed"></div> --}}
     <div class="popup-wrapper" id="popup">
         <div class="popup-container">
-            <form action="{{ route('login') }}" method="post" class="popup-form">
+            <form action="" method="GET" class="popup-form">
+                @csrf
                 <span>{{ session('suksesregister') }}<b>PathFinder</b></span>
                 <p>Please activate your account by clicking the link on the confirmation email we have just sent you</p>
                 <div class="sukesregister">
-                    <input type="submit" value="SEND AGAIN" id="send_again" name="send_again" onclick="sendEmail($data, $institution);">
+                    {{-- <button type="submit" id="send_again" name="send_again" onclick="sendEmail($data, $institution);">SEND AGAIN</button> --}}
                     <a href="/institutions/login" value="" id="sign_in" name="sign_in">SIGN IN</a>
                 </div>
                 {{-- <a class="popup-close" href="#closed">X</a> --}}
@@ -28,16 +31,16 @@
 
                 <h3 class="text-center" id="judul"><b>SIGN UP</b></h3>
                 <div class="form-group">
-                    <input type="text" id="inputfirstname" placeholder="First Name" class="form-control firstname {@error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}">
-                    @error('firstname')
+                    <input type="text" id="inputfirstname" placeholder="First Name" class="form-control firstname {@error('nama_depan') is-invalid @enderror" name="nama_depan" value="{{ old('nama_depan') }}">
+                    @error('nama_depan')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('firstname') }}</strong>
+                            <strong>{{ $errors->first('nama_depan') }}</strong>
                         </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <input type="text" id="inputlastname" placeholder="Last Name" class="form-control lastname @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}">
-                    @error('lastname')
+                    <input type="text" id="inputlastname" placeholder="Last Name" class="form-control lastname @error('nama_belakang') is-invalid @enderror" name="nama_belakang" value="{{ old('nama_belakang') }}">
+                    @error('nama_belakang')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -52,18 +55,18 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <input type="text" id="inputphone" placeholder="Active Phone Number" class="form-control phone_input @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}">
-                    @error('contact')
+                    <input type="text" id="inputphone" placeholder="Active Phone Number" class="form-control phone_input @error('no_hp') is-invalid @enderror" name="no_hp" value="{{ old('no_hp') }}">
+                    @error('no_hp')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('contact') }}</strong>
+                            <strong>{{ $errors->first('no_hp') }}</strong>
                         </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <input type="text" id="inputinstitution" placeholder="Institutions Name" class="form-control institution_input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
-                    @error('name')
+                    <input type="text" id="inputinstitution" placeholder="Institutions Name" class="form-control institution_input @error('nama_sekolah') is-invalid @enderror" name="nama_sekolah" value="{{ old('nama_sekolah') }}">
+                    @error('nama_sekolah')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>{{ $errors->first('nama_sekolah') }}</strong>
                         </span>
                     @enderror
                 </div>
@@ -86,7 +89,7 @@
                 @enderror
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                     <label class="form-check-label ml-2" for="exampleCheck1">I have read and agree with <b>Path</b>Finder's Terms and Conditions, Privacy Policy, and End User License Agreement</label>
                 </div>
                 <button type="submit" class="btn btn-secondary text-center" id="btn_signup">SIGN UP</button>
@@ -109,17 +112,17 @@
     //     });
     // @endif
 
-    @if(Session::has('suksesregister'))
-        setTimeout(function() {
-            swal({
-                title: "Wow!",
-                text: "Message!",
-                type: "success"
-            }, function() {
-                window.location = {{ route('login') }}
-            });
-        }, 1000);
-    @endif
+    // @if(Session::has('suksesregister'))
+    //     setTimeout(function() {
+    //         swal({
+    //             title: "Wow!",
+    //             text: "Message!",
+    //             type: "success"
+    //         }, function() {
+    //             window.location = {{ route('login') }}
+    //         });
+    //     }, 1000);
+    // @endif
 
     function myFunction() {
         var pw1 = document.getElementById("inputpassword01");

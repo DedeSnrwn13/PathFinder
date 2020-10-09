@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,18 +33,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app-two.css') }}" rel="stylesheet">
+    @yield('css')
 
 </head>
 <body>
 
 {{-- Header --}}
     <div class="container">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="/institutions/dashboard">
             <b>Path</b>Finder
         </a>
         <div class="btn-group float-md-right" >
             <button type="button" class="btn dropdown-toggle my-3" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->institution_name }}
+            {{ Auth::user()->nama_depan}}
             </button>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="{{ route('institution.logout') }}"><button class="dropdown-item" type="button"><i class="fas fa-sign-out-alt"></i> Logout</button></a>
@@ -69,6 +70,7 @@
 
 {{-- konten --}}
 <main class="">
+    {{-- {{ Auth::user()->institution }} --}}
     @yield('content')
 </main>
 {{-- EndKonten --}}

@@ -1,5 +1,8 @@
 @extends('layouts.app')
-<link href="{{ asset('css/institutions-landing.css') }}" rel="stylesheet">
+@section('css')
+    <link href="{{ asset('css/institutions-landing.css') }}" rel="stylesheet">
+@endsection
+
 @section('title', 'Institutions Page')
 
 @section('content')
@@ -21,5 +24,8 @@
         </div>
     </div>
 @endsection
+
+
+
 
 

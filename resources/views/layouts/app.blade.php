@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -28,6 +28,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body id="page-top">
     <!-- Navbar -->
@@ -40,11 +41,11 @@
                 <nav class="navbar navbar-expand-lg navbar-dark">
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link" href="#">Job Seekers</a>
-                            <a class="nav-link" href="#">Employers</a>
-                            <a class="nav-link active" href="/talentsearch">Institutions</a>
-                            <a class="nav-link" href="#">Register</a>
-                            <a class="nav-link" href="#">Sign in</a>
+                            <a class="nav-link" href="{{ route('jobseekers.signin') }}">Job Seekers</a>
+                            <a class="nav-link" href="#Employers">Employers</a>
+                            <a class="nav-link active" href="{{ route('landing') }}">Institutions</a>
+                            <a class="nav-link" href="{{ route('landing.register') }}">Register</a>
+                            <a class="nav-link" href="{{ route('landing.login') }}">Sign in</a>
                             <div class="btn-group">
                                 <img class="bahasa" src="{{ asset('uploads/img/united-states.png') }}" alt="">
                                 <img id="toggle" class="dropdown-toggle dropdown-toggle-split" src="{{ asset('uploads/img/drop.png') }}" alt="" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">

@@ -1,0 +1,55 @@
+.bg {
+  background-image: url("../../public/uploads/img/Group 1436.jpg");
+  background-position: -13em;
+}
+.bg .cardlogin {
+  border: 2px solid #667E90;
+  padding: 5% 10%;
+  margin-top: 100px;
+  border-radius: 25px;
+  margin-bottom: 15%;
+}
+.bg .cardlogin #judul {
+  color: #667E90;
+  margin-top: 5px;
+}
+.bg .cardlogin .form-group input {
+  border-radius: 15px;
+  border: 1px solid #707070;
+  box-shadow: 0 1px 2px #707070;
+  margin-top: 30px;
+}
+.bg .cardlogin .form-group .tombol {
+  float: right;
+  margin-top: -28px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.bg .cardlogin #emailHelp {
+  margin-top: 20px;
+}
+.bg .cardlogin .btn {
+  margin: 20px 18.5%;
+  width: 250px;
+}
+.bg .cardlogin #btn_signin {
+  border-radius: 8px;
+}
+.bg #judulkanan {
+  color: white;
+  margin-top: 25px;
+  float: right;
+}
+.bg .kontenkanan {
+  float: right;
+  margin-top: 5%;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-right: -50px;
+}
+.bg .kontenkanan h4 {
+  font-size: 30px;
+  padding: 10px;
+  padding-right: 50px;
+}

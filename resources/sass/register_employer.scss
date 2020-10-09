@@ -1,0 +1,62 @@
+.cardlogin {
+    border: 2px solid #667E90;
+    border-radius: 25px;
+    width: 390px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.918);
+}
+
+.bg {
+    background-image: url('../../public/uploads/img/bg-signup.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -0.5em;
+}
+
+.btn {
+    margin: 20px 18.5%;
+    width: 250px;
+}
+
+#btn_signin {
+    border-radius: 8px;
+}
+
+.form-group input {
+    border-radius: 15px;
+    border: 1px solid #707070;
+    box-shadow: 0 1px 2px #707070;
+    margin-top: 20px;
+    padding: 7px;
+}
+
+#judul {
+    color: #667E90;
+    margin-top: 5px;
+}
+
+.first {
+    width: 49%;
+    float: left;
+}
+
+.last {
+    margin-top: 12px !important;
+    width: 49%;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.email_input {
+    width: 100%;
+    margin-top: 20px !important;
+}
+
+.tombol {
+    float: right;
+    margin-top: -28px;
+    margin-right: 10px;
+    cursor: pointer;
+}

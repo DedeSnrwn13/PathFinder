@@ -16,27 +16,22 @@ class CreateInstitutionTable extends Migration
         Schema::create('institution', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            // $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-            // $table->bigInteger('siswa_id')->unsigned();
-            $table->string('name');
-            $table->string('avatar')->nullable();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('contact');
-            $table->text('address')->nullable();
+            $table->foreignId('user_id');
+            $table->string('nama_sekolah');
+            $table->string('logo_institusi')->nullable();
+            $table->string('no_hp');
+            $table->text('alamat')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('password_confirmation');
-
 
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         // Schema::table('institution', function (Blueprint $table) {
-        //     $table->foreign('siswa_id')->references('id')->on('siswa')
-        //         ->onDelete('cascade')->onUpdate('cascade');
+        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
         // });
     }

@@ -1,0 +1,61 @@
+#btn {
+  width: 40%;
+  float: right;
+  margin-top: -16%;
+}
+
+.text-center {
+  color: #FF8B6A;
+}
+
+.br {
+  margin-bottom: 8% !important;
+  margin-top: 1% !important;
+  border: 1px solid #b8b8b8d0;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.br1 {
+  margin-top: 1% !important;
+  border: 1px solid #272727;
+  width: 80%;
+  margin-left: -4%;
+}
+
+.br2 {
+  margin-top: 1% !important;
+  border: 1px solid #272727;
+  width: 80%;
+  margin-left: -4%;
+}
+
+.card {
+  margin-top: 2%;
+  padding: 5%;
+  border: 1px solid #FF8B6A !important;
+  border-radius: 20px !important;
+}
+
+.nama {
+  margin-left: 0%;
+}
+
+.kanan {
+  background-color: #FF8B6A !important;
+  border: #FF8B6A !important;
+  width: 20%;
+  position: relative;
+  left: 58%;
+}
+
+.kiri {
+  color: #FF8B6A !important;
+  border-color: #FF8B6A !important;
+  width: 20%;
+}
+
+.button {
+  margin-top: 8%;
+}
+

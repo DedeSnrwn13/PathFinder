@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <h1>Hello {{ $name }} thanks for registering!</h1>
+    <h1>Hello {{ $nama_institusi }} thanks for registering!</h1>
 
 
 

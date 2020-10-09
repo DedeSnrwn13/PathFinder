@@ -25,37 +25,47 @@ class FrontController extends Controller
         return view('institutions.register');
     }
 
-    public function register(Request $request, Array $data)
+    public function register()
     {
-        return validator::make($data, [
-            'firstname' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'phone' => 'required',
-            'institutions' => 'required',
-            'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'required|string|min:6|confirmed'
-        ]);
-
-        // Input Pendaftar sebagai user dulu
-        $institusi = new \App\Institution();
-
-        $institusi->firstname             = $request->firstname;
-        $institusi->lastname              = $request->lastname;
-        $institusi->email                 = $request->email;
-        $institusi->phone                 = $request->phone;
-        $institusi->institutions          = $request->institutions;
-        $institusi->password              = Hash::make(bcrypt($request->password));
-        $institusi->password_confirmation = Hash::make(bcrypt($request->password_confirmation));
-        $institusi->remember_token	      = Str::random(60);
-        $institusi->save();
-
-        // Insert ke table users
-        $request->request->add(['user_id' => $institusi->id]);
-        $institusi = \App\User::create($request->all());
-        return redirect('/institutions/login')->with('Sukses', 'Data Pendaftaran Berhasil di Kirim');
-
+        return view('pilihan');
     }
+
+    public function login()
+    {
+        return view('pilihan-two');
+    }
+
+    // public function register(Request $request, Array $data)
+    // {
+    //     return validator::make($data, [
+    //         'firstname' => 'required|string|max:255',
+    //         'lastname' => 'required|string|max:255',
+    //         'email' => 'required|email|max:255|unique:users',
+    //         'phone' => 'required',
+    //         'institutions' => 'required',
+    //         'password' => 'required|string|min:6|confirmed',
+    //         'password_confirmation' => 'required|string|min:6|confirmed'
+    //     ]);
+
+    //     // Input Pendaftar sebagai user dulu
+    //     $institusi = new \App\Institution();
+
+    //     $institusi->firstname             = $request->firstname;
+    //     $institusi->lastname              = $request->lastname;
+    //     $institusi->email                 = $request->email;
+    //     $institusi->phone                 = $request->phone;
+    //     $institusi->institutions          = $request->institutions;
+    //     $institusi->password              = Hash::make(bcrypt($request->password));
+    //     $institusi->password_confirmation = Hash::make(bcrypt($request->password_confirmation));
+    //     $institusi->remember_token	      = Str::random(60);
+    //     $institusi->save();
+
+    //     // Insert ke table users
+    //     $request->request->add(['user_id' => $institusi->id]);
+    //     $institusi = \App\User::create($request->all());
+    //     return redirect('/institutions/login')->with('Sukses', 'Data Pendaftaran Berhasil di Kirim');
+
+    // }
 
     // protected function validator(Array $data)
     // {

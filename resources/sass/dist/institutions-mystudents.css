@@ -247,3 +247,69 @@ form {
   height: 34px;
   cursor: pointer;
 }
+
+#popup {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  z-index: 99999999999;
+  transition: all 1s;
+}
+
+.popup-container {
+  box-sizing: border-box;
+  max-width: 55%;
+  position: relative;
+  margin: 16% auto;
+  padding: 35px 50px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.popup-container form {
+  margin-block-end: 0;
+}
+
+/* style untuk isi popup */
+.popup-form {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.popup-form span {
+  font-size: 20px;
+  font-family: Roboto Regular;
+  color: #3D464D;
+}
+
+.suksesupload {
+  margin-top: 32px;
+}
+
+.popup-form .suksesupload a:focus {
+  outline-color: #667E90;
+}
+
+.popup-form .suksesupload a[type=submit] {
+  background-color: #667E90;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+.popup-form .suksesupload a {
+  background-color: #FE6D45;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 14px;
+  text-align: center;
+  border-radius: 13px;
+  font-size: 16px;
+}
+.popup-form .suksesupload a:focus {
+  outline-color: #FE6D45;
+}

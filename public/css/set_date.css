@@ -1,0 +1,43 @@
+.card-date{
+    border: 1px solid #FF8B6A;
+    padding: 5%;
+    border-radius: 5px;
+}
+
+input{
+    border-radius: 5px;
+    padding: 1%;
+    border: 1px solid grey;
+}
+
+.ss1{
+    line-height: 3.5;
+}
+
+.bwah1{
+    margin-top: 19%;
+}
+
+.bwah2{
+    margin-top: 10%;
+    float: right;
+    margin-right: 13%;
+}
+
+.btn-submit{
+    background-color: #FF8B6A !important;
+    color: white !important;
+}
+
+.date{
+    width: 87%;
+    margin-top: -1%;
+}
+
+.warna{
+    color: #FF8B6A;
+}
+
+.modal-set{
+    margin-top: -5%;
+}

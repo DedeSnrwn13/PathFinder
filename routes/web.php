@@ -29,56 +29,104 @@ Auth::routes(['verify' => true ]);
 // Auth::routes();
 
 //fornt end
-Route::get('/', 'FrontController@home');
+Route::get('/', 'FrontController@home')->name('landing');
+
+Route::get('/register', 'FrontController@register')->name('landing.register');
+Route::get('/login', 'FrontController@login')->name('landing.login');
 
 Route::get('/institutions/register', 'AuthController@register')->name('register');
 Route::post('/institutions/postregister', 'AuthController@postregister')->name('post.register');
 Route::get('/institutions/register/activate/{code}', 'AuthController@activate')->name('register.activate');
 
-Route::get('/institutions/login', 'AuthController@index')->name('login');
-Route::post('/institutions/postlogin', 'AuthController@postlogin');
+Route::get('/institutions/login', 'AuthController@login')->name('login');
+Route::post('/institutions/postlogin', 'AuthController@postlogin')->name('post.login');
+
+// Route::get('/employer/talentsearch/profile', 'ProfileController@index');
+// Route::get('/employer/talentsearch/profile/project', 'ProfileController@project');
+// Route::get('/employer/talentsearch/profile/backgroundeducation', 'ProfileController@backedu');
+// Route::get('/employer/talentsearch/profile/professionalskills', 'ProfileController@skills');
+// Route::get('/employer/talentsearch/profile/basicassessment', 'ProfileController@basic');
+// Route::get('/employer/talentsearch/profile/advancedassessment', 'ProfileController@advance');
 
 
-
-Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
+Route::group(['middleware' => ['auth', 'CheckRole:institution']], function() {
     // dashboard
-    Route::get('/institutions/dashboard', 'SiswaController@index');
-    Route::post('/institutions/dashboard/create', 'SiswaController@create');
-    Route::get('/institutions/dashboard/{siswa}/edit', 'SiswaController@edit');
-    Route::post('/institutions/dashboard/{siswa}/update', 'SiswaController@update');
-    Route::get('/institutions/dashboard/{siswa}/delete', 'SiswaController@delete');
+    Route::get('/institutions/dashboard', 'SiswaController@index')->name('institution.dashboard');
+    Route::get('/institutions/dashboard/add', 'SiswaController@add');
+    Route::post('/institutions/dashboard/postcreate', 'SiswaController@postcreate')->name('institution.create.applicant.data');
+    Route::get('/institutions/dashboard/{pelamar}/edit', 'SiswaController@edit');
+    Route::post('/institutions/dashboard/{pelamar}/update', 'SiswaController@update');
+    Route::get('/institutions/dashboard/{pelamar}/delete', 'SiswaController@delete');
 
+    //logout
+    Route::get('/institutions/logout', 'AuthController@logout')->name('institution.logout');
+
+    // mystudent download
+    // Route::get('/institutions/dashboard/downloadxlsx', 'SiswaController@downloadexcel');
     // mystudent upload
     Route::post('/institutions/dashboard/importxlsx', 'SiswaController@importexcel')->name('siswa.import');
 
 });
 
-
-Route::group(['middleware' => ['auth', 'checkRole:admin, siswa']], function() {
-    // dashboard
-    Route::get('/institutions/logout', 'AuthController@logout')->name('institution.logout');
-    // Route::get('/institutions/dashboard', 'SiswaController@index');
-});
-
 Route::get('getdatasiswa', 'SiswaController@getdatasiswa')->name('ajax.get.data.siswa');
 
+Route::get('jobseekers/signin', 'JobseekersController@signin_jobs')->name('jobseekers.signin');
+Route::post('jobseekers/postsignin', 'JobseekersController@post_sign_jobs')->name('jobseekers.post.signin');
 
 
-// Route::get('kirimemail', function () {
-//     Mail::raw('Hallo User Baru', function ($message) {
-//         $message->to('suucek27@gmail.com', 'Suu Cek');
-//         $message->subject('Pendaftaran Institusi');
-//     });
-// });
+Route::group(['middleware' => ['auth', 'CheckRole:pelamar']], function() {
+    // job seekers
+    Route::get('/jobseeker/online', function () {
+        return view('jobseekers.onlinetesting.onlinetesting');
+    });
+
+    Route::get('/jobseeker/online-testing', function () {
+        return view('jobseekers.onlinetesting.onlineinterview');
+    });
+
+    Route::get('/jobseeker/online-testing-result', function () {
+        return view('jobseekers.onlinetesting.onlinetestingresult');
+    });
+
+    Route::get('/jobseeker/online-interview', function () {
+        return view('jobseekers.onlinetesting.onlineinterview');
+    });
+
+    Route::get('/jobseeker/online-interview-video', function () {
+        return view('jobseekers.onlinetesting.onlineinterviewvideo');
+    });
+
+    //logout
+    Route::get('/jobseeker/logout', 'JobseekersController@logout')->name('jobseeker.logout');
+
+});
 
 
-// Auth::routes();
+
+// login system employers
+// Route::get('/employer/signup', 'EmployerAuthController@getRegister');
+// Route::post('/employer/signup', 'EmployerAuthController@postRegister')->name('register');
+
+// Route::get('/employer/signin', 'EmployerAuthController@getLogin')->name('login');
+// Route::post('/postlogin', 'EmployerAuthController@postlogin');
+// Route::get('/logout', 'EmployerAuthController@logout');
+
+// Route::group(['middleware' => ['auth', 'checkRole:employer']], function() {
+//     // employers - job vacancy
+//     Route::resource('/employer/jobvacancy/apllicant', 'JobVacancyController');
+//     Route::resource('/employer/jobvacancy/candidate', 'CandidateController');
+//     Route::resource('/employer/jobvacancy/onlineinterview', 'OnlineInterviewController');
+//     Route::resource('/employer/jobvacancy/onlinetesting', 'OnlineTestingController');
 
 
-//back end
+//     // employers - talent search
+//     Route::get('/employer/talentsearch', 'TalentSearchController@index');
+//     Route::get('/employer/talentsearch/profile', 'ProfileController@index');
+//     Route::get('/employer/talentsearch/{pelamar}/kirim_pdf', 'TalentSearchController@kirim_pdf');
+//     Route::get('/employer/talentsearch/cari', 'TalentSearchController@cari');
 
-// Route::group(['middleware' => 'auth'], function () {
-//     Route::get('/home', 'HomeController@index')->name('home');
-//     Route::resource('categori', 'CategoriController');
-//     Route::resource('artikel', 'ArtikelController');
+//     Route::get('/employer/talentsearch', 'TalentSearchController@index');
+//     Route::get('/employer/talentsearch/profile/project', 'ProfileController@project');
+//     Route::get('/employer/talentsearch/{pelamar}/kirim_pdf', 'TalentSearchController@kirim_pdf');
+//     Route::get('/employer/talentsearch/cari', 'TalentSearchController@cari');
 // });

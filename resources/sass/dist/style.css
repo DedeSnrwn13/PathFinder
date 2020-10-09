@@ -1,0 +1,104 @@
+html {
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+* {
+  font-family: roboto;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.navbar-brand {
+  color: #FE5E31;
+  font-family: roboto;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #FE5E31;
+}
+
+.btn-group {
+  float: right;
+  margin-top: 15px;
+}
+
+#menu {
+  background-color: #F28C71;
+  border: 1px solid #F28C71;
+}
+
+footer a:hover {
+  color: white !important;
+  text-decoration: none;
+}
+
+.nav {
+  background-color: #F1F1F1;
+}
+
+.navbar-tengah {
+  margin-left: 10%;
+}
+
+.nav-link {
+  margin-right: 50px;
+  font-size: 17px;
+  font-family: roboto;
+  color: #000 !important;
+}
+
+.nav-link:hover {
+  background-color: #F28C71;
+  border-radius: 10px;
+  color: white !important;
+}
+
+.active {
+  background-color: #F28C71;
+  border-radius: 10px;
+  color: white !important;
+}
+
+footer {
+  background-color: #4A4A4A;
+  color: white;
+  margin-top: 100px;
+  bottom: 0;
+}
+
+.foot {
+  color: white;
+  font-size: 55px;
+  margin-top: 20px;
+  float: left;
+  margin-left: 130px;
+}
+
+.list {
+  font-size: 15px;
+}
+
+.list a {
+  color: white;
+}
+
+.deskripsi {
+  float: left;
+  font-size: 15px;
+  margin-top: -10px;
+  margin-left: 130px;
+}
+
+#right {
+  margin-top: 40px;
+  margin-left: 120px;
+}
+
+#right1 {
+  margin-top: 40px;
+}

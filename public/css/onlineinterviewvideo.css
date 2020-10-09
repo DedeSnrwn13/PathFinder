@@ -1,0 +1,19 @@
+.card {
+  margin-top: 1%;
+  padding: 1%;
+  border: 1px solid #FF8B6A !important;
+  border-radius: 20px !important;
+}
+
+.text-center {
+  color: #FF8B6A;
+}
+
+.br {
+  margin-bottom: 8% !important;
+  margin-top: 1% !important;
+  border: 1px solid #b8b8b8d0;
+  width: 20%;
+  margin: 0 auto;
+}
+

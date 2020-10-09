@@ -17,7 +17,7 @@
 }
 
 .form-group {
-  margin-bottom: 0px !important;
+  margin-bottom: 0px;
 }
 .form-group input {
   border-radius: 15px;
@@ -34,19 +34,26 @@
 }
 
 .firstname {
-  width: 40%;
+  width: 45%;
+  float: left;
 }
 
 .lastname {
-  margin-top: 20px !important;
-  width: 48%;
+  width: 45%;
+  float: right;
 }
 
 .email_input,
-.institutions_input,
-.phone_input {
+.institution_input,
+.phone_input,
+.password,
+.password_confirmation {
   width: 100%;
-  margin-top: 20px !important;
+}
+
+.firstname,
+.lastname {
+  margin-bottom: 20px;
 }
 
 .form-check {
@@ -125,9 +132,10 @@ img.showpw {
 }
 
 .sukesregister {
-  display: flex;
+  text-align: center;
   padding-left: 183px;
   padding-right: 183px;
+  margin-top: 40px;
 }
 
 .sukesregister input {
@@ -142,7 +150,7 @@ img.showpw {
 }
 
 #sign_in {
-  margin-left: 20px;
+  text-align: center;
 }
 
 .popup-form .sukesregister input:focus {

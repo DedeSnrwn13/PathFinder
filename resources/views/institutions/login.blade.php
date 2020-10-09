@@ -1,12 +1,14 @@
 @extends('layouts.app')
-<link href="{{ asset('css/institutions-signin.css') }}" rel="stylesheet">
+@section('css')
+    <link href="{{ asset('css/institutions-signin.css') }}" rel="stylesheet">
+@endsection
 @section('title', 'Institutions | Sign In')
 
 @section('content')
 <div class="jumbotron jumbotron2">
     <div class="container">
         <div class="cardlogin">
-            <form action="/institutions/postlogin" method="POST">
+            <form action="{{ route('post.login') }}" method="POST">
                 @csrf
 
                 <h3 class="text-center" id="judul"><b>SIGN IN</b></h3>
@@ -27,6 +29,16 @@
                         </span>
                     @enderror
                 </div>
+                @if (session('pesan'))
+                    <div class="alert alert-danger alert-dismissible show fade mt-3">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>x</span>
+                            </button>
+                            {{ session('pesan') }}
+                        </div>
+                    </div>
+                @endif
                 <div class="text-center">
                     <button type="submit" class="btn btn-secondary text-center" id="btn_signin">SIGN IN</button>
                     <a href="/institutions/register" id="btn_signup">Don't have an account?</a>
@@ -39,12 +51,6 @@
 
 @section('footer')
 <script>
-    @if(Session::has('successMsg'))
-    swal({
-        text: "Hello world!",
-    });
-    @endif
-
     function myFunction() {
         var pw1 = document.getElementById("inputpassword");
 
