@@ -16,7 +16,17 @@ class Pelamar extends Model
 
     public function user()
     {
-    	return $this->hasOne('App\User');
+    	return $this->belongsTo('App\User');
+    }
+
+    // public function about()
+    // {
+    // 	return $this->hasOne('App\About');
+    // }
+
+    public function about()
+    {
+    	return $this->belongsTo('App\About');
     }
 
     public function pekerjaan()
@@ -28,6 +38,14 @@ class Pelamar extends Model
     {
         return $this->belongsTo('App\Pendidikan');
     }
+
+    // public function project() {
+    //     return $this->hasMany('App\Project');
+    // }
+
+    // public function skill() {
+    //     return $this->hasMany('App\Skill');
+    // }
 
     public function getAvatar()
     {

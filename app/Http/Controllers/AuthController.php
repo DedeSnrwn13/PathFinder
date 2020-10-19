@@ -128,30 +128,6 @@ class AuthController extends Controller
         return view('institutions.login');
     }
 
-    public function postlogin(Request $request)
-    {
-        // dd($request->all());
-        $this->validate($request, [
-            'email'    => 'required|email',
-            'password' => 'required'
-        ]);
-
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            if (Auth::user()->active == 0) {
-                Auth::logout();
-                return 'Please Activate Your Account';
-            } else {
-                // return 'You Have been log in';
-                return redirect('/institutions/dashboard');
-            }
-        } else {
-            return redirect('/institutions/dashboard');
-        }
-
-    }
-
     // public function postlogin(Request $request)
     // {
     //     // dd($request->all());
@@ -168,23 +144,46 @@ class AuthController extends Controller
     //             return 'Please Activate Your Account';
     //         } else {
     //             // return 'You Have been log in';
-    //             // return redirect('/institutions/dashboard');
-    //             $data = User::where('email', $request->email)->firstOrFail();
-
-    //             if ($data) {
-    //                 if (Hash::check($request->password, $data->password)) {
-    //                     session(['berhasil_login' => true]);
-    //                     return redirect('/institutions/dashboard');
-    //                 } else {
-    //                     return redirect('/institutions/login')->with('pesan', 'Incorrect email or password');
-    //                 }
-    //              }
+    //             return redirect('/institutions/dashboard');
     //         }
     //     } else {
     //         return redirect('/institutions/dashboard');
     //     }
 
     // }
+
+    public function postlogin(Request $request)
+    {
+        // dd($request->all());
+        $this->validate($request, [
+            'email'    => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            if (Auth::user()->active == 0) {
+                Auth::logout();
+                return 'Please Activate Your Account';
+            } else {
+                // return 'You Have been log in';
+                // return redirect('/institutions/dashboard');
+                $data = User::where('email', $request->email)->firstOrFail();
+
+                if ($data) {
+                    if (Hash::check($request->password, $data->password)) {
+                        // session(['berhasil_login' => true]);
+                        return redirect('/institutions/dashboard');
+                    } else {
+                        return redirect('/institutions/login')->with('pesan', 'Incorrect email or password');
+                    }
+                 }
+            }
+        } else {
+            return redirect('/institutions/dashboard');
+        }
+    }
 
     public function logout(Request $request) {
         $request->session()->flush();

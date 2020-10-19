@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Pathfinder'),
+    'name' => env('APP_NAME', 'PathFinder'),
 
     /*
     |--------------------------------------------------------------------------

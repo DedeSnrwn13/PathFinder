@@ -48,6 +48,26 @@ class User extends Model implements AuthenticatableContract,CanResetPasswordCont
         return $this->hasOne('App\Roles');
     }
 
+    public function about() {
+        return $this->hasOne('App\About');
+    }
+
+    public function project() {
+        return $this->hasOne('App\Project');
+    }
+
+    public function skill() {
+        return $this->hasOne('App\Skill');
+    }
+
+    public function pelamar() {
+        return $this->hasOne('App\Pelamar');
+    }
+
+    public function employer() {
+        return $this->belongsTo('App\Employer');
+    }
+
     // public function role() {
     //     return $this->belongsTo(UserRole::class);
     // }

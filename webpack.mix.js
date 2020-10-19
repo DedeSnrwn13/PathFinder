@@ -37,5 +37,7 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/jobseekers-signin.scss', 'public/css')
     .sass('resources/sass/style_black.scss', 'public/css')
     .sass('resources/sass/pilihan.scss', 'public/css')
+    .sass('resources/sass/app-admin.scss', 'public/css')
+
 
 

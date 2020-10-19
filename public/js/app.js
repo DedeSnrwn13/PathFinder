@@ -19366,6 +19366,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/app-admin.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/app-admin.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/app-two.scss":
 /*!*************************************!*\
   !*** ./resources/sass/app-two.scss ***!
@@ -19642,9 +19653,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/app-two.scss ./resources/sass/institutions-landing.scss ./resources/sass/institutions-signup.scss ./resources/sass/institutions-signin.scss ./resources/sass/institutions-mystudents.scss ./resources/sass/institutions-mystudents-edit.scss ./resources/sass/bg.scss ./resources/sass/profile.scss ./resources/sass/pro.scss ./resources/sass/talentsearch.scss ./resources/sass/style.scss ./resources/sass/navbar.scss ./resources/sass/candidate.scss ./resources/sass/jobvacancy.scss ./resources/sass/login_employer.scss ./resources/sass/onlineinterview.scss ./resources/sass/onlineinterviewvideo.scss ./resources/sass/onlinetesting.scss ./resources/sass/onlinetestingresult.scss ./resources/sass/register_employer.scss ./resources/sass/signup.scss ./resources/sass/jobseekers-signin.scss ./resources/sass/style_black.scss ./resources/sass/pilihan.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/app-two.scss ./resources/sass/institutions-landing.scss ./resources/sass/institutions-signup.scss ./resources/sass/institutions-signin.scss ./resources/sass/institutions-mystudents.scss ./resources/sass/institutions-mystudents-edit.scss ./resources/sass/bg.scss ./resources/sass/profile.scss ./resources/sass/pro.scss ./resources/sass/talentsearch.scss ./resources/sass/style.scss ./resources/sass/navbar.scss ./resources/sass/candidate.scss ./resources/sass/jobvacancy.scss ./resources/sass/login_employer.scss ./resources/sass/onlineinterview.scss ./resources/sass/onlineinterviewvideo.scss ./resources/sass/onlinetesting.scss ./resources/sass/onlinetestingresult.scss ./resources/sass/register_employer.scss ./resources/sass/signup.scss ./resources/sass/jobseekers-signin.scss ./resources/sass/style_black.scss ./resources/sass/pilihan.scss ./resources/sass/app-admin.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19673,7 +19684,8 @@ __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\register_emplo
 __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\signup.scss */"./resources/sass/signup.scss");
 __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\jobseekers-signin.scss */"./resources/sass/jobseekers-signin.scss");
 __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\style_black.scss */"./resources/sass/style_black.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\pilihan.scss */"./resources/sass/pilihan.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\pilihan.scss */"./resources/sass/pilihan.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\pathfinder\resources\sass\app-admin.scss */"./resources/sass/app-admin.scss");
 
 
 /***/ })

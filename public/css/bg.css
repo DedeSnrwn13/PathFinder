@@ -1,20 +1,24 @@
 .grey {
-  color: grey;
+  color: #777777;
+  margin-left: 15px;
+  font-style: normal;
+  font-weight: normal;
 }
 
 .title {
   color: #FF8B6A;
   font-size: 160%;
-  margin-left: 4%;
+  margin-left: 10px;
 }
 
 .tanggal {
   color: #FF8B6A;
-  margin-left: 11.4%;
+  margin-left: 10px;
 }
 
 .univ {
-  margin-left: 4.2%;
+  color: #FF8B6A;
+  font-weight: 500;
 }
 
 .bwah {
@@ -23,18 +27,18 @@
 
 .master {
   margin-top: -4%;
+  font-weight: normal;
+  color: black;
 }
 
 .major {
+  font-style: normal;
+  font-weight: normal;
+  color: black;
   margin-top: -4%;
 }
 
 .gpa {
   margin-top: -4%;
-}
-
-.konten {
-  margin-left: 7%;
-  margin-top: 4%;
 }
 

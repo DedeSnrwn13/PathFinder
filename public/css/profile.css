@@ -26,7 +26,7 @@
 .white {
   border: 1px solid #667E90 !important;
   background-color: white !important;
-  margin-left: 24% !important;
+  margin-left: 15% !important;
   margin-top: -5%;
   color: black !important;
   margin-bottom: 10%;
@@ -35,7 +35,7 @@
 .white:hover {
   border: 1px solid #667E90 !important;
   background-color: #667E90 !important;
-  margin-left: 24% !important;
+  margin-left: 15% !important;
   margin-top: -5%;
   color: white !important;
 }
@@ -43,7 +43,6 @@
 #drpdwn {
   border-radius: 20px;
   background-color: #439100 !important;
-  margin-left: 82%;
   margin-top: 3%;
 }
 
@@ -226,9 +225,9 @@
   float: left;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 60px;
+  padding-left: 40px;
   box-sizing: border-box;
-  padding-right: 40px;
+  padding-right: 20px;
   margin-left: 3%;
   margin-top: 3%;
   height: unset !important;

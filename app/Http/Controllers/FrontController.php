@@ -25,12 +25,12 @@ class FrontController extends Controller
         return view('institutions.register');
     }
 
-    public function register()
+    public function register_landing()
     {
         return view('pilihan');
     }
 
-    public function login()
+    public function login_landing()
     {
         return view('pilihan-two');
     }

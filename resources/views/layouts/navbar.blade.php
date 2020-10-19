@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -48,9 +48,10 @@
                     {{ Auth::user()->nama_depan }}
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+
+                        <a class="dropdown-item" href="/jobseeker/profile">Profile</a>
+                        <a class="dropdown-item" href="/jobseeker/logout">Log Out</a>
+
                     </div>
                 </div>
             </div>

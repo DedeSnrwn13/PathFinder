@@ -20,10 +20,6 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 |
 */
 
-Route::get('/Admin', function () {
-    return view('login');
-});
-
 Auth::routes(['verify' => true ]);
 
 // Auth::routes();
@@ -31,8 +27,8 @@ Auth::routes(['verify' => true ]);
 //fornt end
 Route::get('/', 'FrontController@home')->name('landing');
 
-Route::get('/register', 'FrontController@register')->name('landing.register');
-Route::get('/login', 'FrontController@login')->name('landing.login');
+Route::get('/signup', 'FrontController@register_landing');
+Route::get('/signin', 'FrontController@login_landing');
 
 Route::get('/institutions/register', 'AuthController@register')->name('register');
 Route::post('/institutions/postregister', 'AuthController@postregister')->name('post.register');
@@ -96,8 +92,28 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelamar']], function() {
         return view('jobseekers.onlinetesting.onlineinterviewvideo');
     });
 
+    // profile
+    Route::get('/jobseeker/profile', 'ProfileController@index_profile');
+    Route::post('/jobseeker/profile/{id}/update', 'ProfileController@about_update');
+
+    Route::get('/jobseeker/profile/project', 'ProfileController@project');
+    Route::post('/jobseeker/profile/project/{id}/update', 'ProfileController@project_update');
+
+    Route::get('/jobseeker/profile/backgroundeducation', 'ProfileController@backedu');
+
+    Route::get('/jobseeker/profile/professionalskills', 'ProfileController@skills');
+    Route::post('/jobseeker/profile/professionalskills/{id}/update', 'ProfileController@skills_update');
+
+    Route::get('/jobseeker/profile/basicassessment', 'ProfileController@basic');
+    Route::get('/jobseeker/profile/advancedassessment', 'ProfileController@advance');
+
+    // edit
+    Route::get('/jobseeker/profile/{id}/edit', 'ProfileController@edit_profile');
+    Route::get('/jobseeker/profile/project/{id}/edit', 'ProfileController@edit_project');
+    Route::get('/jobseeker/profile/professionalskills/{id}/update', 'ProfileController@edit_skills');
+
     //logout
-    Route::get('/jobseeker/logout', 'JobseekersController@logout')->name('jobseeker.logout');
+    Route::get('/jobseeker/logout', 'JobseekersController@logout_job')->name('jobseeker.logout');
 
 });
 
@@ -130,3 +146,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelamar']], function() {
 //     Route::get('/employer/talentsearch/{pelamar}/kirim_pdf', 'TalentSearchController@kirim_pdf');
 //     Route::get('/employer/talentsearch/cari', 'TalentSearchController@cari');
 // });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
