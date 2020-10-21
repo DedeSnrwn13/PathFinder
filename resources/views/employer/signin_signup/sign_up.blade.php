@@ -1,4 +1,5 @@
-@extends('layouts.main_black')
+
+@extends('layouts.app')
 @section('title', 'Employer | Register ')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/register_employer.css') }}">
@@ -8,10 +9,10 @@
 
 {{-- FormLogin --}}
 
-    <div class="bg">
+    <div class="jumbotron jumbotron2">
         <div class="container">
             <div class="cardlogin">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="/employer/signup">
                     {{ csrf_field() }}
                     <h3 class="text-center" id="judul"><b>SIGN UP</b></h3>
 
@@ -74,4 +75,29 @@
 
 {{-- EndFormLogin --}}
 
+@endsection
+
+
+@section('footer')
+    <script>
+        function myFunction() {
+        var pw1 = document.getElementById("inputpassword");
+
+        if (pw1.type === "password") {
+            pw1.type = "text";
+        } else {
+            pw1.type = "password";
+        }
+    }
+
+    function myFunction1() {
+        var pw2 = document.getElementById("inputpassword1");
+
+        if (pw2.type === "password") {
+            pw2.type = "text";
+        } else {
+            pw2.type = "password";
+        }
+    }
+    </script>
 @endsection

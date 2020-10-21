@@ -8,9 +8,10 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\User;
-
+use App\Roles;
+use Illuminate\Support\Facades\Mail;
 
 class EmployerAuthController extends Controller
 {
@@ -22,12 +23,17 @@ class EmployerAuthController extends Controller
 
     public function postLogin(Request $request)
     {
+        $this->validate($request, [
+            'email'    => 'required|email',
+            'password' => 'required'
+        ]);
+
         if(Auth::attempt($request->only('email', 'password'))){
             return redirect('/employer/talentsearch');
         }
         return redirect('/employer/signin');
     }
-    
+
 
     public function getRegister()
     {
@@ -37,28 +43,58 @@ class EmployerAuthController extends Controller
     public function postRegister(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed'
+            'firstname'             => 'required|string|max:50|min:2',
+            'lastname'              => 'nullable|string|min:2|max:50',
+            'email'                 => 'required|email|unique:users',
+            'password'              => 'required|string|min:8',
+            'password_confirmation' => 'required_with:password|same:password|string|min:8' ,
         ]);
 
         $user = new \App\User;
-        $user->role = 'employer';
-        $user->nama_depan = $request->firstname;
+        $user->nama_depan    = $request->firstname;
         $user->nama_belakang = $request->lastname;
-        $user->email = $request->email;
-        $user->password = bcrypt ($request->password);
+        $user->email         = $request->email;
+        $user->created_by    = $request->firstname;
+        $user->created_date  = date("Y-m-d H:i");
+        $user->updated_by    = $request->firstname;
+        $user->updated_date  = date("Y-m-d H:i");
+        $user->password      = bcrypt($request->password);
         $user->save();
-        
-        $request->request->add(['user_id' => $user->id]);
-        $request->request->add(['nama_depan' => $user->nama_depan]);
-        $request->request->add(['nama_belakang' => $user->nama_belakang]);
-        $employer = \App\Employer::create($request->all());
-        return view('employer/signin_signup/sign_in');
+
+
+        // insert ke table Roles
+        $roles = new \App\Roles;
+        $roles->name        = $request->firstname;
+        $roles->user_id     = $user->id;
+        $roles->description = 'employer';
+        $roles->save();
+
+        $employer = new \App\Employer;
+        $employer->user_id       = $user->id;
+        $employer->nama_depan    = $request->firstname;
+        $employer->nama_belakang = $request->lastname;
+        $employer->email         = $request->email;
+        $employer->save();
+
+        return view('employer.signin_signup.sign_in');
     }
 
     public function logout(){
         Auth::logout();
         return redirect('employer/signin');
     }
-}
 
+    public function send(Request $request)
+    {
+        $data = [
+            'file' => $request->file('file')
+        ];
+
+        //  $to = [
+            // 'nama' => $request->nama,
+        // ];
+        $to = 'danyfadhilah8c@gmail.com';
+        Mail::to($to)->send(new \App\Mail\TesMail($data));
+        echo 'Sent Email Success';
+    }
+}

@@ -16,16 +16,19 @@ class TalentSearchController extends Controller
      */
     public function index()
     {
-        $pelamar = DB::table('pelamar')->paginate(3);
+        $pelamars = \App\Pelamar::paginate(3);
+        $user = \App\User::find('id');
+
         /**$pelamar = Pelamar::all()->paginate(2);**/
-        return view('employer.talent_search.talentsearch', compact('pelamar'));
+        return view('employer.talent_search.talentsearch', compact('pelamars', 'user'));
     }
 
     public function kirim_pdf(Pelamar $pelamar)
     {
         $pelamar = Pelamar::findOrFail($pelamar->id);
+        // $pdf = PDF::loadView('pdf.invoice', $data);
         $pdf = PDF::loadView('export.pelamarpdf',['pelamar'=>$pelamar]);
-        return $pdf->stream('profile.pdf');
+        return $pdf->download('profile.pdf');
     }
 
     public function offer(Pelamar $pelamar)
@@ -36,12 +39,11 @@ class TalentSearchController extends Controller
     public function cari(Request $request)
     {
         $cari = $request->cari;
-        $pelamar = DB::table('pelamar')
-        ->where('nama', 'like', "%".$cari."%")
-        ->orwhere('usia', 'like', "%".$cari."%")
-        ->orwhere('pendidikan', 'like', "%".$cari."%")
-        ->orwhere('alamat', 'like', "%".$cari."%")
-        ->get();
+        $pelamar = \App\Pelamar::where('nama', 'like', "%".$cari."%")
+        ->orwhere('tanggal_lahir', 'like', "%".$cari."%")
+        ->orwhere('tempat_lahir', 'like', "%".$cari."%")
+        ->paginate(3);
+
         return view('employer\talent_search\talentsearch', compact('pelamar'));
     }
 

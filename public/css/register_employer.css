@@ -8,11 +8,12 @@
   background-color: rgba(255, 255, 255, 0.918);
 }
 
-.bg {
+.jumbotron2 {
   background-image: url(/images/bg-signup.jpg?7472dd32d3eafb84c37adfe528975f91);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: -0.5em;
+  background-size: 2000px 1400px;
+  background-position: center;
+  height: auto;
+  margin-bottom: 0 !important;
 }
 
 .btn {

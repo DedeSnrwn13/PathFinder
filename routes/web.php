@@ -117,36 +117,36 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelamar']], function() {
 
 });
 
+Route::get('/employer/signin', 'EmployerAuthController@getLogin');
+Route::post('/postlogin', 'EmployerAuthController@postlogin');
 
+Route::get('/employer/signup', 'EmployerAuthController@getRegister');
+    Route::post('/employer/signup', 'EmployerAuthController@postRegister');
 
 // login system employers
-// Route::get('/employer/signup', 'EmployerAuthController@getRegister');
-// Route::post('/employer/signup', 'EmployerAuthController@postRegister')->name('register');
+Route::group(['middleware' => ['auth', 'CheckRole:employer']], function() {
+    Route::resource('/employer/jobvacancy/apllicant', 'JobVacancyController');
+    Route::resource('/employer/jobvacancy/candidate', 'CandidateController');
+    Route::resource('/employer/jobvacancy/onlineinterview', 'OnlineInterviewController');
+    Route::resource('/employer/jobvacancy/onlinetesting', 'OnlineTestingController');
 
-// Route::get('/employer/signin', 'EmployerAuthController@getLogin')->name('login');
-// Route::post('/postlogin', 'EmployerAuthController@postlogin');
-// Route::get('/logout', 'EmployerAuthController@logout');
+    Route::post('/email', 'EmployerAuthController@send')->name('email/send');
 
-// Route::group(['middleware' => ['auth', 'checkRole:employer']], function() {
-//     // employers - job vacancy
-//     Route::resource('/employer/jobvacancy/apllicant', 'JobVacancyController');
-//     Route::resource('/employer/jobvacancy/candidate', 'CandidateController');
-//     Route::resource('/employer/jobvacancy/onlineinterview', 'OnlineInterviewController');
-//     Route::resource('/employer/jobvacancy/onlinetesting', 'OnlineTestingController');
+    Route::get('/logout', 'EmployerAuthController@logout');
 
+    Route::get('/employer/talentsearch', 'TalentSearchController@index');
+    // Route::get('/employer/talentsearch/profile', 'ProfileController@index');
+    Route::get('/employer/talentsearch/{pelamar}/kirim_pdf', 'TalentSearchController@kirim_pdf');
+    Route::get('/employer/talentsearch/{pelamar}/offer', 'TalentSearchController@offer');
+    Route::get('/employer/talentsearch/cari', 'TalentSearchController@cari');
+    Route::get('/employer/talentsearch/{pelamar}/profile', 'ProfileController@index_talent');
+    Route::get('/employer/talentsearch/{pelamar}/profile/project', 'ProfileController@project_talent');
+    Route::get('/employer/talentsearch/{pelamar}/profile/backgroundeducation', 'ProfileController@background_talent');
+    Route::get('/employer/talentsearch/{pelamar}/profile/professionalskills', 'ProfileController@pro_talent');
+    Route::get('/employer/talentsearch/{pelamar}/profile/basicassessment', 'ProfileController@basic_talent');
+    Route::get('/employer/talentsearch/{pelamar}/profile/advancedassessment', 'ProfileController@advan_talent');
 
-//     // employers - talent search
-//     Route::get('/employer/talentsearch', 'TalentSearchController@index');
-//     Route::get('/employer/talentsearch/profile', 'ProfileController@index');
-//     Route::get('/employer/talentsearch/{pelamar}/kirim_pdf', 'TalentSearchController@kirim_pdf');
-//     Route::get('/employer/talentsearch/cari', 'TalentSearchController@cari');
-
-//     Route::get('/employer/talentsearch', 'TalentSearchController@index');
-//     Route::get('/employer/talentsearch/profile/project', 'ProfileController@project');
-//     Route::get('/employer/talentsearch/{pelamar}/kirim_pdf', 'TalentSearchController@kirim_pdf');
-//     Route::get('/employer/talentsearch/cari', 'TalentSearchController@cari');
-// });
-
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

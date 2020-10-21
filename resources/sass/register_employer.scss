@@ -8,11 +8,18 @@
     background-color: rgba(255, 255, 255, 0.918);
 }
 
-.bg {
+// .bg {
+//     background-image: url('../../public/uploads/img/bg-signup.jpg');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: -0.5em;
+// }
+.jumbotron2 {
     background-image: url('../../public/uploads/img/bg-signup.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: -0.5em;
+    background-size: 2000px 1400px;
+    background-position: center;
+    height: auto;
+    margin-bottom: 0 !important;
 }
 
 .btn {

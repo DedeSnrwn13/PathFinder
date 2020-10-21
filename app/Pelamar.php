@@ -19,16 +19,6 @@ class Pelamar extends Model
     	return $this->belongsTo('App\User');
     }
 
-    // public function about()
-    // {
-    // 	return $this->hasOne('App\About');
-    // }
-
-    public function about()
-    {
-    	return $this->belongsTo('App\About');
-    }
-
     public function pekerjaan()
     {
         return $this->belongsTo('App\Pekerjaan');

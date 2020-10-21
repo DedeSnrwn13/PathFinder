@@ -76,10 +76,12 @@
                 <div class="hobbybox">
                     <div class="row">
                         <div class="col-md-12">
+                            {{-- @foreach ($user as $user) --}}
                             <div class="row">
                                 <div class="col-md-3">
                                     <h4 class="font-weight-bolder">Hobby(s)</h4>
                                 </div>
+
                                 <div class="col-md-7">
                                     <span class=" d-block">{{ $user->about->hobby_one }}</span>
 
@@ -130,6 +132,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- @endforeach --}}
                         </div>
 
                     </div>

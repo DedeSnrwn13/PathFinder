@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Institution;
 use App\Pelamar;
 use App\About;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
@@ -135,5 +136,34 @@ class ProfileController extends Controller
         return view('profile.advan');
     }
 
+    // employer
+    public function index_talent(Pelamar $pelamar) {
+        // $user = \App\User::find($id);
+        // $pelamar = \App\pelamar::find($id);
+        // $user = Auth::user();
 
+        return view('employer.profile.profile', compact('pelamar'));
+    }
+
+
+    public function project_talent(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('employer.profile.project', compact('pelamar'));
+    }
+
+    public function background_talent(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('employer.profile.backgroundedu', compact('pelamar'));
+    }
+
+    public function pro_talent(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('employer.profile.professional', compact('pelamar'));
+    }
 }

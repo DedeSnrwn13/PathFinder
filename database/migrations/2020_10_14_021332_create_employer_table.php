@@ -14,12 +14,13 @@ class CreateEmployerTable extends Migration
     public function up()
     {
         Schema::create('employer', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->foreignId('user_id');
             $table->string('nama_depan');
-            $table->string('nama_belakang');
+            $table->string('nama_belakang')->nullable();
             $table->string('email')->unique();
-            $table->string('password');
+
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

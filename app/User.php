@@ -64,10 +64,6 @@ class User extends Model implements AuthenticatableContract,CanResetPasswordCont
         return $this->hasOne('App\Pelamar');
     }
 
-    public function employer() {
-        return $this->belongsTo('App\Employer');
-    }
-
     // public function role() {
     //     return $this->belongsTo(UserRole::class);
     // }
@@ -93,6 +89,10 @@ class User extends Model implements AuthenticatableContract,CanResetPasswordCont
 
     public function institution() {
         return $this->hasMany('App\Institution');
+    }
+
+    public function employer() {
+        return $this->hasMany('App\Employer');
     }
 
     public function activateAccount($code)

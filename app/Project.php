@@ -12,7 +12,7 @@ class Project extends Model
         'start','to', 'position', 'description', 'user_id',
     ];
 
-    public function user() {
+    public function users() {
         return $this->belongsTo('App\User');
     }
 }

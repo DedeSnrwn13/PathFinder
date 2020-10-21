@@ -1,4 +1,6 @@
-@extends('layouts.main_black')
+
+
+@extends('layouts.app')
 @section('title', 'Employer | Login ')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/login_employer.css') }}">
@@ -63,3 +65,16 @@
 
 @endsection
 
+@section('footer')
+    <script>
+        function myFunction() {
+        var pw1 = document.getElementById("inputpassword");
+
+        if (pw1.type === "password") {
+            pw1.type = "text";
+        } else {
+            pw1.type = "password";
+        }
+    }
+    </script>
+@endsection

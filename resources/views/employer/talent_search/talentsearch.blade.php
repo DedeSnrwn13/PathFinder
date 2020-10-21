@@ -42,44 +42,78 @@
 
 
 {{-- Card --}}
-        @foreach ($pelamar as $d)
+        @foreach ($pelamars as $pelamar)
             <div class="card">
                         <div class="row">
                             <div class="col-md-3">
-                                <h5 class="text-center"><b><a href="/employer/talentsearch/profile">{{ $d->nama }}</a></b></h5>
-                                <p class="text-center">{{ $d->gender }} | {{ $d->usia }} yrs</p>
-                                <a href="/employer/talentsearch/{{ $d->id }}/profile"><img class="profil" src="{{ asset('img/profil.png') }}" alt=""></a>
-                                <p class="text-center" id="teks">Registered on {{ $d->created_at }}</p>
-                            </div>
-                            <div class="col-md-5">
-                                <img class="kiri" src="{{ asset('img/suitcase.png') }}" alt="">
-                                <p class="teks1">{{ $d->pekerjaan1 }}</p>
-                                <p class="kanan">at {{ $d->tempatkerja1 }}</p>
-                                <p class="lamakerja">{{ $d->lamakerja1 }} yrs of experience</p>
-
-                                <img class="kiri" src="{{ asset('img/suitcase.png') }}" alt="">
-                                <p class="teks1">{{ $d->pekerjaan2 }}</p>
-                                <p class="kanan">at {{ $d->tempatkerja2 }}</p>
-                                <p class="lamakerja">{{ $d->lamakerja2 }} yrs of experience</p>
-
-                                <img class="kiri" src="{{ asset('img/edu.png') }}" alt="">
-                                <p class="teks">{{ $d->pendidikan }}</p>
-                                <p class="kanan">{{ $d->fakultas }} {{ $d->ipk }}</p>
+                                <h5 class="text-center"><b><a href="/employer/talentsearch/profile">{{ $pelamar->nama }}</a></b></h5>
+                                <p class="text-center">{{ $pelamar->gender }} | {{ \Carbon\Carbon::parse($pelamar->tanggal_lahir)->diffForHumans(null, true) }} yrs</p>
+                                <a href="/employer/talentsearch/{{ $pelamar->id }}/profile"><img class="px-3 py-3 profil" src="{{ $pelamar->getAvatar() }}" alt=""></a>
+                                <p class="text-center" id="teks">Registered on {{ \Carbon\Carbon::parse($pelamar->created_at)->diffForHumans(null, true) }} </p>
                             </div>
                             <div class="col-md-4">
-                                {{--<a href="/employer/talentsearch/{{ $d->id }}/kirim_pdf">--}}
-                                    <button type="button" id="btn" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">
-                                        FORWARD RESUME
-                                    </button>
-                                </a>
-                                {{-- <a href="/employer/talentsearch/{{ $d->id }}/offer"> --}}
-                                    <button type="button" id="btn1" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal1">
-                                        OFFER A JOB
-                                    </button>
-                                <p id="alamat">{{ $d->alamat }}</p>
-                                <img id="imglocation" src="{{ asset('img/location.png') }}" alt="">
-                                <p id="gaji">IDR {{ $d->mingaji }} - IDR {{ $d->maxgaji }}</p>
-                                <img id="imgsalary" src="{{ asset('img/salary.png') }}" alt="">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img class="" src="{{ asset('img/suitcase.png') }}" alt="">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="pt-2 pl-2">{{ $pelamar->pekerjaan->posisi }}</p>
+                                    </div>
+                                    <div class="col-md-2 offset"></div>
+                                    <div class="col-md-10 ">
+                                        <p class="pl-2">at {{ $pelamar->pekerjaan->nama_perusahaan }}</p>
+                                    </div>
+                                    <div class="col-md-2 offset"></div>
+                                    <div class="col-md-10 ">
+                                        <p class="pl-2">{{ $pelamar->pengalaman() }} yrs of experience</p>
+                                    </div>
+
+                                    {{-- <img class="kiri" src="{{ asset('img/suitcase.png') }}" alt="">
+                                    <p class="teks1">{{ $pekerjaan2 }}</p>
+                                    <p class="kanan">at {{ $tempatkerja2 }}</p>
+                                    <p class="lamakerja">{{ $lamakerja2 }} yrs of experience</p> --}}
+
+                                    <div class="col-md-2 mt-3">
+                                        <img class="" src="{{ asset('img/edu.png') }}" alt="">
+                                    </div>
+                                    <div class="col-md-10 mt-3">
+                                        <p class="pt-2 pl-2">{{ $pelamar->pendidikan->nama_sekolah }}</p>
+                                    </div>
+                                    <div class="col-md-2 offset"></div>
+                                    <div class="col-md-10">
+                                        <p class="pl-2">{{ $pelamar->pendidikan->jurusan }} {{ $pelamar->pendidikan->nilai }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                {{--<a href="/employer/talentsearch/{{ $id }}/kirim_pdf">--}}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="/employer/talentsearch/{{ $pelamar->id }}/kirim_pdf">
+                                            <button type="button" id="btn" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                                                FORWARD RESUME
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" id="btn1" class="btn btn-success btn-sm float-right" data-toggle="modal" data-target="#exampleModal1">
+                                            OFFER A JOB
+                                        </button>
+                                    </div>
+                                    {{-- <a href="/employer/talentsearch/{{ $id }}/offer"> --}}
+                                    <div class="col-md-10 mt-3">
+                                        <p id="" class="float-left">{{ $pelamar->tempat_lahir }}</p>
+                                    </div>
+                                    <div class="col-md-2 mt-3">
+                                        <img id="" src="{{ asset('img/location.png') }}" alt="">
+                                    </div>
+                                    <div class="col-md-10 mt-3">
+                                        <p id="">IDR {{ $pelamar->mingaji }} - IDR {{ $pelamar->maxgaji }}</p>
+                                    </div>
+                                    <div class="col-md-2 mt-3">
+                                        <img id="" src="{{ asset('img/salary.png') }}" alt="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
