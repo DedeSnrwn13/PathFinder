@@ -233,3 +233,7 @@
   height: 80%;
 }
 
+#pills-tab {
+  display: none;
+}
+

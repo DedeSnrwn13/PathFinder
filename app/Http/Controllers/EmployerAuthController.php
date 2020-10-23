@@ -93,7 +93,7 @@ class EmployerAuthController extends Controller
         //  $to = [
             // 'nama' => $request->nama,
         // ];
-        $to = 'danyfadhilah8c@gmail.com';
+        $to = $request->nama;
         Mail::to($to)->send(new \App\Mail\TesMail($data));
         echo 'Sent Email Success';
     }

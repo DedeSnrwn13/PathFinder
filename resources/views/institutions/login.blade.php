@@ -4,6 +4,14 @@
 @endsection
 @section('title', 'Institutions | Sign In')
 
+@section('menu')
+<a class="nav-link" href="{{ route('jobseekers.signin') }}">Job Seekers</a>
+<a class="nav-link " href="/employer/signin">Employers</a>
+<a class="nav-link active" href="{{ route('landing') }}">Institutions</a>
+<a class="nav-link" href="/signup">Register</a>
+<a class="nav-link" href="/signin">Sign in</a>
+@endsection
+
 @section('content')
 <div class="jumbotron jumbotron2">
     <div class="container">

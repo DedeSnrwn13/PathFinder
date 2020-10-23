@@ -45,7 +45,7 @@
         </a>
         <div class="btn-group float-md-right" >
             <button type="button" class="btn dropdown-toggle my-3" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ Auth::user()->nama_depan}}
+            {{ Auth::user()->nama_depan}} {{ Auth::user()->nama_belakang}}
             </button>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="{{ route('institution.logout') }}"><button class="dropdown-item" type="button"><i class="fas fa-sign-out-alt"></i> Logout</button></a>

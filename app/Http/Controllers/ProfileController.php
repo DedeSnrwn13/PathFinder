@@ -166,4 +166,63 @@ class ProfileController extends Controller
 
         return view('employer.profile.professional', compact('pelamar'));
     }
+
+    public function basic_talent(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('employer.profile.basic', compact('pelamar'));
+    }
+
+    public function advan_talent(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('employer.profile.advan', compact('pelamar'));
+    }
+
+    // institutions
+    public function index_student(Pelamar $pelamar) {
+        // $user = \App\User::find($id);
+        // $pelamar = \App\pelamar::find($id);
+        // $user = Auth::user();
+
+        return view('institutions.profile.profile', compact('pelamar'));
+    }
+
+
+    public function project_student(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('institutions.profile.project', compact('pelamar'));
+    }
+
+    public function background_student(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('institutions.profile.backgroundedu', compact('pelamar'));
+    }
+
+    public function pro_student(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('institutions.profile.professional', compact('pelamar'));
+    }
+
+    public function basic_student(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('institutions.profile.basic', compact('pelamar'));
+    }
+
+    public function advan_student(Pelamar $pelamar) {
+        // $user = User::find($id);
+        // $user = Auth::user();
+
+        return view('institutions.profile.advan', compact('pelamar'));
+    }
 }

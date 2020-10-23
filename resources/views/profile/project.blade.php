@@ -85,16 +85,16 @@
                             </div>
                             <div class="col-md-4">
                                 <h3>Project</h3>
-                                <span>{{ $user->project->start }} - {{ $user->project->to }}</span>
+                                <span>{{ $user->project['start'] }} - {{ $user->project['to'] }}</span>
                                 {{-- <span class=" d-block">{{ $pelamar->projects->start }}</span>
                                  --}}
 
 
                             </div>
                             <div class="col-md-5">
-                                <h4 class="d-block">{{ $user->project->position }}</h4>
+                                <h4 class="d-block">{{ $user->project['position'] }}</h4>
                                 <span class="d-block">
-                                    {{ $user->project->description }}
+                                    {{ $user->project['description'] }}
                                 </span>
                             </div>
                             <div class="col-md-2 float-right">

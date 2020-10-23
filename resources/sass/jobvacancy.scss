@@ -1,25 +1,25 @@
-.list-konten{
+.list-konten {
     border-bottom: 2px solid gray;
     padding-top: 1%;
     padding-bottom: 1%;
 }
 
-.quality{
+.quality {
     border-right: 2px solid gray;
 }
 
-.date{
+.date {
     margin-top: -5%;
     margin-right: 1%;
     float: left;
     font-size: 85%;
 }
 
-.qualit{
+.qualit {
     float: left;
 }
 
-.view{
+.view {
     font-size: 70%;
     color: gray;
     float: left;
@@ -27,58 +27,58 @@
     margin-top: 1.5%;
 }
 
-.title{
+.title {
     color: #FF8B6A;
     font-size: 80%;
 }
 
-.ket{
+.ket {
     font-size: 80%;
 }
 
-.tanpa{
+.tanpa {
     background-color: white !important;
     margin-left: 2% !important;
 }
 
-.row{
+.row {
     flex-wrap: nowrap !important;
 }
 
-.nav-pills .nav-link{
+.nav-pills .nav-link {
     padding: 10px;
 }
 
-.nav-pills .nav-link:hover{
+.nav-pills .nav-link:hover {
     background-color: gray;
     color: white;
     border-radius: 10px;
 }
 
-.nav-link:hover .title{
+.nav-link:hover .title {
     color: white;
 }
 
-.nav-pills .nav-link.active{
+.nav-pills .nav-link.active {
     background-color: gray !important;
     border-radius: 10px;
 }
 
-.nav-pills .nav-link.active a{
+.nav-pills .nav-link.active a {
     color: white;
     text-decoration: none;
 }
 
-.nav-pills .nav-link.active .title{
+.nav-pills .nav-link.active .title {
     color: white;
 }
 
-.tab-content>.active{
+.tab-content>.active {
     background-color: white;
     color: black !important;
 }
 
-.search{
+.search {
     margin-left: 10%;
     margin-top: 20px;
     background-color: whitesmoke;
@@ -88,12 +88,12 @@
     height: 9%;
 }
 
-.stat{
+.stat {
     float: left;
     margin-top: 1;
 }
 
-.form-control{
+.form-control {
     width: 20% !important;
     float: left;
     margin-left: 5%;
@@ -102,16 +102,16 @@
     box-shadow: 0px 1px 2px gray;
 }
 
-.atas{
+.atas {
     margin-top: -1.6%;
     margin-left: 5%;
 }
 
-.atas1{
+.atas1 {
     margin-top: -1% !important;
 }
 
-.sorted{
+.sorted {
     font-size: 75%;
     margin-left: 8%;
     margin-top: -1%;
@@ -119,12 +119,12 @@
     color: #FF8B6A;
 }
 
-.sorted:hover{
+.sorted:hover {
     text-decoration: none;
     color: #FF8B6A;
 }
 
-.card{
+.card {
     margin: 0 auto;
     padding: 50px;
     width: 800px;
@@ -133,83 +133,82 @@
     border: 0.1px solid #FF8B6A !important;
 }
 
-#btn{
+#btn {
     border-radius: 13px;
     margin-left: -40px;
     margin-right: 5px;
     width: 55%;
 }
 
-#btn1{
-   border-radius: 13px;
-   margin-top: 2px;
-   margin-bottom: 5px;
-   background-color: #439100;
-   width: 55%;
+#btn1 {
+    border-radius: 13px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    background-color: #439100;
+    width: 55%;
 }
 
-
-#teks{
+#teks {
     margin-left: 0px;
     color: #929292;
 }
 
-.profil{
+.profil {
     margin-left: -13px;
 }
 
-.kiri{
+.kiri {
     margin-left: 20px;
     float: left;
 }
 
-.teks{
+.teks {
     float: left;
     margin-top: 9px;
     margin-left: 5px;
     color: #F28C71;
 }
 
-.teks1{
-   float: left;
-   margin-top: 9px;
-   margin-left: 11px;
-   color: #F28C71;
+.teks1 {
+    float: left;
+    margin-top: 9px;
+    margin-left: 11px;
+    color: #F28C71;
 }
 
-.kanan{
+.kanan {
     margin-left: 70px;
     margin-top: -10px;
     float: left;
 }
 
-.lamakerja{
+.lamakerja {
     margin-left: 70px;
     float: left;
     margin-top: -15px;
 }
 
-#alamat{
-   position: relative;
-   margin-left: -25px;
+#alamat {
+    position: relative;
+    margin-left: -25px;
 }
 
-#imglocation{
-   float: right;
-   margin-top: -40px;
+#imglocation {
+    float: right;
+    margin-top: -40px;
 }
 
-#gaji{
-   margin-top: -15px;
-   margin-left: -25px;
+#gaji {
+    margin-top: -15px;
+    margin-left: -25px;
 }
 
-#imgsalary{
-   float: right;
-   margin-top: -40px;
+#imgsalary {
+    float: right;
+    margin-top: -40px;
 }
 
-.btn-orange{
+.btn-orange {
     background-color: #FF8B6A !important;
     color: white !important;
     width: 10% !important;
@@ -218,29 +217,29 @@
     margin-top: -4% !important;
 }
 
-.btn-orange a{
+.btn-orange a {
     color: white;
 }
 
-.btn-orange a:hover{
+.btn-orange a:hover {
     color: white;
     text-decoration: none;
 }
 
-.modal-footer{
+.modal-footer {
     border-top: none !important;
 }
 
-.atas a{
+.atas a {
     color: #FF8B6A;
 }
 
-.atas a:hover{
+.atas a:hover {
     color: #FF8B6A;
     text-decoration: none;
 }
 
-.modal-content{
+.modal-content {
     padding: 2%;
     margin-top: 40%;
 }

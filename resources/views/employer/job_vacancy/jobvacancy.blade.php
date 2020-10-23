@@ -94,43 +94,45 @@
                 $i = 1;
             @endphp
             @foreach ($data as $d)
-                <div class="card">
-                    <div class="row">
+            <div class="card">
+                <div class="row">
                         <div class="col-md-3">
                             <h5 class="text-center"><b>{{ $d->nama }}</b></h5>
-                            <p class="text-center">{{ $d->gender }} | {{ $d->usia }} yrs</p>
-                            <img class="profil" src="{{ asset('img/profil.png') }}" alt="">
-                            <p class="text-center" id="teks">Applied on {{ $d->created_at }}</p>
+                            <p class="text-center">{{ $d->gender }} | {{ \Carbon\Carbon::parse($d->tanggal_lahir)->diffForHumans(null, true) }}</p>
+                            <a href="/employer/talentsearch/{{ $d->id }}/profile"><img class="profil" src="{{ $d->getAvatar() }}" alt=""></a>
+                            <p class="text-center" id="teks">Registered on {{ \Carbon\Carbon::parse($d->created_at)->diffForHumans(null, true) }}</p>
                         </div>
                         <div class="col-md-5">
                             <img class="kiri" src="{{ asset('img/suitcase.png') }}" alt="">
-                            <p class="teks1">{{ $d->pekerjaan1 }}</p>
-                            <p class="kanan">at {{ $d->tempatkerja1 }}</p>
-                            <p class="lamakerja">{{ $d->lamakerja1 }} yrs of experience</p>
+                            <p class="teks1">{{ $d->pekerjaan->posisi }}</p>
+                            <p class="kanan">at {{ $d->pekerjaan->nama_perusahaan }}</p>
+                            <p class="lamakerja">{{ $d->berakhir_kerja-$d->mulai_kerja }}-4 yrs of experience</p>
 
                             <img class="kiri" src="{{ asset('img/suitcase.png') }}" alt="">
-                            <p class="teks1">{{ $d->pekerjaan2 }}</p>
-                            <p class="kanan">at {{ $d->tempatkerja2 }}</p>
-                            <p class="lamakerja">{{ $d->lamakerja2 }} yrs of experience</p>
+                            <p class="teks1">{{ $d->pekerjaan->posisi }}</p>
+                            <p class="kanan">at {{ $d->pekerjaan->nama_perusahaan }}</p>
+                            <p class="lamakerja">{{ $d->berakhir_kerja-$d->mulai_kerja }}-4 yrs of experience</p>
 
                             <img class="kiri" src="{{ asset('img/edu.png') }}" alt="">
-                            <p class="teks">{{ $d->pendidikan }}</p>
-                            <p class="kanan">{{ $d->fakultas }} {{ $d->ipk }}</p>
+                            <p class="teks">{{ $d->pendidikan->nama_sekolah }}</p>
+                            <p class="kanan">{{ $d->pendidikan->jurusan }} {{ $d->pendidikan->nilai }}</p>
                         </div>
-                        <div class="col-md-4">
-                            <button type="button" id="btn" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">
-                                UNSUITABLE
-                            </button>
-                            <button type="button" id="btn1" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal1">
-                                CANDIDATE
-                            </button>
-                                <p id="alamat">{{ $d->alamat }}</p>
-                                <img id="imglocation" src="{{ asset('img/location.png') }}" alt="">
-                                <p id="gaji">IDR {{ $d->mingaji }} - IDR {{ $d->maxgaji }}</p>
-                                <img id="imgsalary" src="{{ asset('img/salary.png') }}" alt="">
+                    <div class="col-md-4">
+                        <button type="button" id="btn" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                            UNSUITABLE
+                        </button>
+                        <button type="button" id="btn1" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal1">
+                            CANDIDATE
+                        </button>
+                        <div class="mt-3">
+                            <p id="alamat">{{ $d->tempat_lahir }}</p>
+                            <img id="imglocation" src="{{ asset('img/location.png') }}" alt="">
+                            <p id="gaji">IDR {{ $d->mingaji }} - IDR {{ $d->maxgaji }}</p>
+                            <img id="imgsalary" src="{{ asset('img/salary.png') }}" alt="">
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
             @php
                 $i++;

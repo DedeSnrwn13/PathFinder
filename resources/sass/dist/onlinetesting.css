@@ -1,0 +1,118 @@
+#btn {
+  width: 40%;
+  float: right;
+  margin-top: -16%;
+}
+
+.text-center {
+  color: #FF8B6A;
+}
+
+.br {
+  margin-bottom: 8% !important;
+  margin-top: 1% !important;
+  border: 1px solid #b8b8b8d0;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.br1 {
+  margin-top: 1% !important;
+  border: 1px solid #272727;
+  width: 80%;
+  margin-left: -4%;
+}
+
+.br2 {
+  margin-top: 1% !important;
+  border: 1px solid #272727;
+  width: 80%;
+  margin-left: -4%;
+}
+
+.card {
+  margin-top: 2%;
+  border: 1px solid #FF8B6A !important;
+  border-radius: 20px !important;
+}
+
+.nama {
+  color: black;
+  font-family: Roboto Bold;
+  margin-left: 0%;
+}
+
+.kanan {
+  background-color: #FF8B6A !important;
+  border: #FF8B6A !important;
+  width: 20%;
+  position: relative;
+  left: 58%;
+}
+
+.kiri {
+  color: #FF8B6A !important;
+  border-color: #FF8B6A !important;
+  width: 20%;
+}
+
+.button {
+  margin-top: 8%;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.set,
+.set2 {
+  background-color: #FFE0D8;
+  border-radius: 14px;
+  padding-top: 10px;
+  padding-bottom: 16px;
+}
+.set .tag,
+.set2 .tag {
+  color: black;
+  font-family: Roboto Bold;
+  font-size: 14px;
+  font-weight: bold;
+}
+.set .miring,
+.set2 .miring {
+  font-style: italic;
+  color: #CE0000;
+  font-family: Roboto Bold;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.set2 {
+  margin-top: 15px;
+}
+
+.btn-set {
+  background-color: #FF8B6A;
+  color: white;
+  font-family: Roboto Regular;
+  font-size: 14px;
+  border: none;
+  border-radius: 14px;
+}
+
+#btn-move {
+  background-color: #439100;
+  font-size: 14px;
+  color: white;
+  font-family: Robot Regular;
+  border: none;
+  width: 100%;
+  border-radius: 14px;
+}
+
+.tgl-desk {
+  font-size: 14px;
+  color: #929292;
+  font-family: Roboto Regular;
+}

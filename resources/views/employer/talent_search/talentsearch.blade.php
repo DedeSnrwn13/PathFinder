@@ -44,7 +44,7 @@
 {{-- Card --}}
         @foreach ($pelamars as $pelamar)
             <div class="card">
-                        <div class="row">
+                <div class="row">
                             <div class="col-md-3">
                                 <h5 class="text-center"><b><a href="/employer/talentsearch/profile">{{ $pelamar->nama }}</a></b></h5>
                                 <p class="text-center">{{ $pelamar->gender }} | {{ \Carbon\Carbon::parse($pelamar->tanggal_lahir)->diffForHumans(null, true) }} yrs</p>
@@ -115,43 +115,47 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    {{-- Modal --}}
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <p class="text-center">Forward Resume to:</p>
-                <div class="modal-body">
-                    <input class="form-control text-center" type="input" placeholder="Email Address" aria-label="Search">
-                    <input type="file">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
-                    <button id="pi" type="button" class="btn">SUBMIT</button>
-                </div>
                 </div>
             </div>
+
+            {{-- Modal --}}
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <p class="text-center">Forward Resume to:</p>
+                                <div class="modal-body">
+                                    <form method="POST" action="{{ route('email.send') }}" enctype="multipart/form-data">
+                                        @csrf
+                                        <input class="form-control text-center" type="text" name="nama" placeholder="Email Address" aria-label="Search">
+                                        <input type="file" class="inputfile" name="file">
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+                                            <input id="pi" type="submit" class="btn">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
             </div>
 
             <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <p class="text-center">Are you sure you want to offer a job to this applicant?</p>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
-                    <a href="/employer/jobvacancy/apllicant">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal1">YES</button>
-                    </a>
-                </div>
-                </div>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <p class="text-center">Are you sure you want to offer a job to this applicant?</p>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
+                                    <a href="/employer/jobvacancy/apllicant">
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal1">YES</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
             </div>
-            </div>
-    {{-- EndModal --}}
+        {{-- EndModal --}}
         @endforeach
-        </div>
-    {{-- EndCard --}}
+    </div>
+{{-- EndCard --}}
 
 
 

@@ -1,19 +1,13 @@
 @extends('layouts.main')
-<link rel="stylesheet" href="{{ asset('css/talentsearch.css') }}">
-<link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 
-@section('title', 'Talent Search | Profile')
+@section('css')
+    {{-- <link rel="stylesheet" href="{{ asset('css/talentsearch.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+@endsection
+
+@section('title', 'Talent Search | Advan Assessment')
 
 @section('content')
-
-{{-- Header --}}
-<div class="container">
-    <a class="navbar-brand" href="#">
-        <b>Path</b>Finder
-    </a>
-</div>
-{{-- EndHeader --}}
-
 {{-- Navbar --}}
 <div class="nav">
     <div class="container">
@@ -21,9 +15,9 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" href="#"><b>Job Vacancy</b></a>
+                        <a class="nav-link" href="/employer/jobvacancy/apllicant"><b>Job Vacancy</b></a>
                         <a class="nav-link" href="#"><b>My Candidates</b></a>
-                        <a class="nav-link active" href="#"><b>Talent Search</b></a>
+                        <a class="nav-link active" href="/employer/talentsearch"><b>Talent Search</b></a>
                         <a class="nav-link" href="#"><b>Online Testing Configuration</b></a>
                         <a class="nav-link" href="#"><b>Client Managament</b></a>
                     </div>
@@ -38,17 +32,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <img class="profil" src="{{ asset('images/default.png') }}" alt="">
-                <p class="text-center" id="teks">Registered on September 5th, 2019 on</p>
-                <button type="button" id="btn" class="btn btn-outline-secondary btn-sm white" data-toggle="modal" data-target="#exampleModal">
-                    <b>FORWARD RESUME</b>
-                </button>
+                <img class="profil" src="{{ $pelamar->getAvatar() }}" alt="">
+                <p class="text-center" id="teks">Registered on {{ \Carbon\Carbon::parse($pelamar->created_at)->diffForHumans(null, true) }}</p>
+                <a href="/employer/talentsearch/{{ $pelamar->id }}/kirim_pdf">
+                    <button type="button" id="btn" class="btn btn-outline-secondary btn-sm white" data-toggle="modal" data-target="#exampleModal">
+                        <b>FORWARD RESUME</b>
+                    </button>
+                </a>
             </div>
-
+            <input type="hidden" name="id" value="{{$pelamar->id}}">
             <div class="col-md-4">
                 <div class="name mt-5">
-                    <h4><b>Zahirudin Mapusay</b></h4>
-                    <p class="Major">Multimedia Student at SMK XYZ</p>
+                    <h4><b>{{ $pelamar->nama }}</b></h4>
+                    <p class="Major">{{ $pelamar->pendidikan->jurusan }} Student at {{ $pelamar->pendidikan->nama_sekolah }}</p>
                 </div>
                 <div class="contact">
                     <div class="key">
@@ -57,9 +53,9 @@
                         <span>Location</span></b>
                     </div>
                     <div class="value">
-                        <span>zahirudinmapusay@gmail.com</span>
-                        <span>0817100754</span><br>
-                        <span>Cisauk, Tangerang Selatan</span>
+                        <span>{{ $pelamar->email }}</span><br>
+                        <span>0823423432</span><br>
+                        <span>{{ $pelamar->tempat_lahir }}</span>
                     </div>
                 </div>
             </div>
@@ -88,12 +84,12 @@
     <div class="row">
         <div class="col-md-3">
             <div class="kategori">
-                <a href="/employer/talentsearch/profile"><button class="aboutme text-center">About Me</button></a>
-                <a href="/employer/talentsearch/profile/project"><button class="projects text-center">Projects</button></a>
-                <a href="/employer/talentsearch/profile/backgroundeducation"><button class="backed text-center">Background Education</button></a>
-                <a href="/employer/talentsearch/profile/professionalskills"><button class="profskill text-center">Professional Skills</button></a>
-                <a href="/employer/talentsearch/profile/basicassessment"><button class="basicass text-center">Basic Assessment</button></a>
-                <a href="/employer/talentsearch/profile/advancedassessment"><button class="advanced text-center aktif2">Advanced Assessment</button></a>
+                <a href="/employer/talentsearch/{{$pelamar->id}}/profile"><button class="aboutme text-center">About Me</button></a>
+                <a href="/employer/talentsearch/{{$pelamar->id}}/profile/project"><button class="projects text-center">Projects</button></a>
+                <a href="/employer/talentsearch/{{$pelamar->id}}/profile/backgroundeducation"><button class="backed text-center">Background Education</button></a>
+                <a href="/employer/talentsearch/{{$pelamar->id}}/profile/professionalskills"><button class="profskill text-center">Professional Skills</button></a>
+                <a href="/employer/talentsearch/{{$pelamar->id}}/profile/basicassessment"><button class="basicass text-center">Basic Assessment</button></a>
+                <a href="/employer/talentsearch/{{$pelamar->id}}/profile/advancedassessment"><button class="advanced text-center aktif2">Advanced Assessment</button></a>
             </div>
         </div>
         <div class="col-md-9">

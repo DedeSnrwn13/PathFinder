@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\DB;
-use PDF;
 use App\Pelamar;
+// use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class TalentSearchController extends Controller
 {
@@ -19,6 +20,7 @@ class TalentSearchController extends Controller
         $pelamars = \App\Pelamar::paginate(3);
         $user = \App\User::find('id');
 
+
         /**$pelamar = Pelamar::all()->paginate(2);**/
         return view('employer.talent_search.talentsearch', compact('pelamars', 'user'));
     }
@@ -27,7 +29,7 @@ class TalentSearchController extends Controller
     {
         $pelamar = Pelamar::findOrFail($pelamar->id);
         // $pdf = PDF::loadView('pdf.invoice', $data);
-        $pdf = PDF::loadView('export.pelamarpdf',['pelamar'=>$pelamar]);
+        $pdf = PDF::loadView('export.pelamarpdf', ['pelamar'=>$pelamar]);
         return $pdf->download('profile.pdf');
     }
 

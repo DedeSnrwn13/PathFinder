@@ -1,45 +1,47 @@
-.title{
+.title {
     color: #FF8B6A;
     font-size: 160%;
     margin-left: 4%;
 }
 
-.konten{
+.konten {
     margin-left: 7%;
     margin-top: 4%;
 }
 
-.skill{
+.skill {
     float: left;
     margin-left: 8.2%;
 }
 
-.skill li{
+.skill li {
     margin-top: 2%;
 }
 
-.hitam{
+.hitam {
     color: black;
 }
 
-dl, ol, ul{
+dl,
+ol,
+ul {
     color: #FF8B6A;
 }
 
 .tingkat {
     float: left;
-    margin-left: 5%;  
+    margin-left: 5%;
 }
 
-.ting1{
+.ting1 {
     background-color: #FFF9C2;
-    padding-left: 20%;
+    text-align: center;
     border-radius: 5px;
     width: 120%;
-    
+    margin-top: 2%;
 }
 
-.ting2{
+.ting2 {
     background-color: #FFF9C2;
     padding-left: 20%;
     border-radius: 5px;
@@ -47,7 +49,7 @@ dl, ol, ul{
     margin-top: 5%;
 }
 
-.ting3{
+.ting3 {
     background-color: #D8EAFF;
     padding-left: 10%;
     border-radius: 5px;

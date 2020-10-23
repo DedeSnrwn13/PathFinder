@@ -17,7 +17,7 @@ class OnlineTestingController extends Controller
     {
         $data    = Pelamar::all();
         // $skedjul = Skedjul::all();
-        return view('employer\job_vacancy\online_testing', compact('data', 'skedjul'));
+        return view('employer\job_vacancy\online_testing', compact('data'));
     }
 
     /**

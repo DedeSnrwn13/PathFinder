@@ -95,49 +95,49 @@
                 $i = 1;
             @endphp
             @foreach ($data as $d)
-                <div class="card">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h5 class="text-center"><b>{{ $d->nama }}</b></h5>
-                            <p class="text-center">{{ $d->gender }} | {{ $d->usia }} yrs</p>
-                            <img class="profil" src="{{ asset('img/profil.png') }}" alt="">
-                            <p class="text-center" id="teks">Applied on {{ $d->created_at }}</p>
-                        </div>
-                        <div class="col-md-5">
-                            <img class="kiri" src="{{ asset('img/suitcase.png') }}" alt="">
-                            <p class="teks1">{{ $d->pekerjaan1 }}</p>
-                            <p class="kanan">at {{ $d->tempatkerja1 }}</p>
-                            <p class="lamakerja">{{ $d->lamakerja1 }} yrs of experience</p>
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5 class="text-center"><b>{{ $d->nama }}</b></h5>
+                        <p class="text-center">{{ $d->gender }} | {{ \Carbon\Carbon::parse($d->tanggal_lahir)->diffForHumans(null, true) }}</p>
+                        <a href="/employer/talentsearch/{{ $d->id }}/profile"><img class="profil" src="{{ $d->getAvatar() }}" alt=""></a>
+                        <p class="text-center" id="teks">Applied on {{ \Carbon\Carbon::parse($d->created_at)->diffForHumans(null, true) }}</p>
+                    </div>
+                    <div class="col-md-5">
+                        <img class="kiri" src="{{ asset('img/suitcase.png') }}" alt="">
+                        <p class="teks1">{{ $d->pekerjaan->posisi }}</p>
+                        <p class="kanan">at {{ $d->pekerjaan->nama_perusahaan }}</p>
+                        <p class="lamakerja">{{ $d->berakhir_kerja-$d->mulai_kerja }}-4 yrs of experience</p>
 
-                            <img class="kiri" src="{{ asset('img/suitcase.png') }}" alt="">
-                            <p class="teks1">{{ $d->pekerjaan2 }}</p>
-                            <p class="kanan">at {{ $d->tempatkerja2 }}</p>
-                            <p class="lamakerja">{{ $d->lamakerja2 }} yrs of experience</p>
+                        <img class="kiri" src="{{ asset('img/suitcase.png') }}" alt="">
+                        <p class="teks1">{{ $d->pekerjaan->posisi }}</p>
+                        <p class="kanan">at {{ $d->pekerjaan->nama_perusahaan }}</p>
+                        <p class="lamakerja">{{ $d->berakhir_kerja-$d->mulai_kerja }}-4 yrs of experience</p>
 
-                            <img class="kiri" src="{{ asset('img/edu.png') }}" alt="">
-                            <p class="teks">{{ $d->pendidikan }}</p>
-                            <p class="kanan">{{ $d->fakultas }} {{ $d->ipk }}</p>
+                        <img class="kiri" src="{{ asset('img/edu.png') }}" alt="">
+                            <p class="teks">{{ $d->pendidikan->nama_sekolah }}</p>
+                            <p class="kanan">{{ $d->pendidikan->jurusan }} {{ $d->pendidikan->nilai }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="dropdown mb-3">
+                            <button class="btn btn-sm btn-success dropdown-toggle dropdown-toggle-split" id="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MOVE TO
+                            </button>
+                            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalinter" href="/employer/jobvacancy/onlineinterview">ONLINE INTERVIEW</a>
+                                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModaltest" href="/employer/jobvacancy/onlinetesting">ONLINE TESTING</a>
+                                <a class="dropdown-item" href="#">EMPLOYED</a>
+                                <a class="dropdown-item" href="#">DROP</a>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="dropdown">
-                                <button class="btn btn-sm btn-success dropdown-toggle dropdown-toggle-split" id="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    MOVE TO
-                                </button>
-                                <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalinter" href="/employer/jobvacancy/onlineinterview">ONLINE INTERVIEW</a>
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#exampleModaltest" href="/employer/jobvacancy/onlinetesting">ONLINE TESTING</a>
-                                    <a class="dropdown-item" href="#">EMPLOYED</a>
-                                    <a class="dropdown-item" href="#">DROP</a>
-                                </div>
-                            </div>
-                                <p id="alamat">{{ $d->alamat }}</p>
-                                <img id="imglocation" src="{{ asset('img/location.png') }}" alt="">
-                                <p id="gaji">IDR {{ $d->mingaji }} - IDR {{ $d->maxgaji }}</p>
-                                <img id="imgsalary" src="{{ asset('img/salary.png') }}" alt="">
-                            </div>
+                            <p id="alamat">{{ $d->tempat_lahir }}</p>
+                            <img id="imglocation" src="{{ asset('img/location.png') }}" alt="">
+                            <p id="gaji">IDR {{ $d->mingaji }} - IDR {{ $d->maxgaji }}</p>
+                            <img id="imgsalary" src="{{ asset('img/salary.png') }}" alt="">
                         </div>
                     </div>
                 </div>
+            </div>
 
 {{-- modal interview --}}
 <div class="modal fade" id="exampleModalinter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

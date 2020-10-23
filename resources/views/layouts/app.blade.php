@@ -41,11 +41,7 @@
                 <nav class="navbar navbar-expand-lg navbar-dark">
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link" href="{{ route('jobseekers.signin') }}">Job Seekers</a>
-                            <a class="nav-link" href="/employer/signin">Employers</a>
-                            <a class="nav-link active" href="{{ route('landing') }}">Institutions</a>
-                            <a class="nav-link" href="/signup">Register</a>
-                            <a class="nav-link" href="/signin">Sign in</a>
+                            @yield('menu')
                             <div class="btn-group">
                                 <img class="bahasa" src="{{ asset('uploads/img/united-states.png') }}" alt="">
                                 <img id="toggle" class="dropdown-toggle dropdown-toggle-split" src="{{ asset('uploads/img/drop.png') }}" alt="" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">

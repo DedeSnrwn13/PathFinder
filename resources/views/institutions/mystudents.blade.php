@@ -148,7 +148,7 @@
                                     <div class="kiri text-center">
                                         <h5 class="name">{{ $daftar->nama }}</h5>
                                         <p class="age">{{ $daftar->gender }} <span class="text-bold">.</span> {{ \Carbon\Carbon::parse($daftar->tanggal_lahir)->diffForHumans(null, true) }}</p>
-                                        <img class="profil" src="{{ $daftar->getAvatar() }}" alt="">
+                                        <a href="/institutions/mystudent/{{ $daftar->id }}/profile"><img class="profil" src="{{ $daftar->getAvatar() }}" alt=""></a>
                                         <p class="created_at align-items-end">Regitered on {{ \Carbon\Carbon::parse($daftar->created_at)->diffForHumans(null, true) }}</p>
                                     </div>
                                     <div class="tengah">

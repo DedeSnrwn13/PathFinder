@@ -62,6 +62,14 @@ Route::group(['middleware' => ['auth', 'CheckRole:institution']], function() {
     // mystudent upload
     Route::post('/institutions/dashboard/importxlsx', 'SiswaController@importexcel')->name('siswa.import');
 
+    // profile
+    Route::get('/institutions/mystudent/{pelamar}/profile', 'ProfileController@index_student');
+    Route::get('/institutions/mystudent/{pelamar}/profile/project', 'ProfileController@project_student');
+    Route::get('/institutions/mystudent/{pelamar}/profile/backgroundeducation', 'ProfileController@background_student');
+    Route::get('/institutions/mystudent/{pelamar}/profile/professionalskills', 'ProfileController@pro_student');
+    Route::get('/institutions/mystudent/{pelamar}/profile/basicassessment', 'ProfileController@basic_student');
+    Route::get('/institutions/mystudent/{pelamar}/profile/advancedassessment', 'ProfileController@advan_student');
+
 });
 
 Route::get('getdatasiswa', 'SiswaController@getdatasiswa')->name('ajax.get.data.siswa');
@@ -130,7 +138,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:employer']], function() {
     Route::resource('/employer/jobvacancy/onlineinterview', 'OnlineInterviewController');
     Route::resource('/employer/jobvacancy/onlinetesting', 'OnlineTestingController');
 
-    Route::post('/email', 'EmployerAuthController@send')->name('email/send');
+    Route::post('/email', 'EmployerAuthController@send')->name('email.send');
 
     Route::get('/logout', 'EmployerAuthController@logout');
 

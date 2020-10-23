@@ -83,19 +83,19 @@
                         <div class="bwah">
                             <div class="skill">
                                 <ul>
-                                    <li><span class="hitam">{{ $user->skill->skill_one }}</span></li>
-                                    <li><span class="hitam">{{ $user->skill->skill_two }}</span></li>
-                                    <li><span class="hitam">{{ $user->skill->skill_three }}</span></li>
-                                    <li><span class="hitam">{{ $user->skill->skill_four }}</span></li>
-                                    <li><span class="hitam">{{ $user->skill->skill_five }}</span></li>
+                                    <li><span class="hitam">{{ $user->skill['skill_one'] }}</span></li>
+                                    <li><span class="hitam">{{ $user->skill['skill_two'] }}</span></li>
+                                    <li><span class="hitam">{{ $user->skill['skill_three'] }}</span></li>
+                                    <li><span class="hitam">{{ $user->skill['skill_four'] }}</span></li>
+                                    <li><span class="hitam">{{ $user->skill['skill_five'] }}</span></li>
                                 </ul>
                             </div>
                             <div class="tingkat">
-                                <div class="ting1">{{ $user->skill->skill_level_one }}</div>
-                                <div class="ting1">{{ $user->skill->skill_level_two }}</div>
-                                <div class="ting1">{{ $user->skill->skill_level_three }}</div>
-                                <div class="ting1">{{ $user->skill->skill_level_four }}</div>
-                                <div class="ting1">{{ $user->skill->skill_level_five }}</div>
+                                <div class="ting1">{{ $user->skill['skill_level_one'] }}</div>
+                                <div class="ting1">{{ $user->skill['skill_level_two'] }}</div>
+                                <div class="ting1">{{ $user->skill['skill_level_three'] }}</div>
+                                <div class="ting1">{{ $user->skill['skill_level_four'] }}</div>
+                                <div class="ting1">{{ $user->skill['skill_level_five'] }}</div>
                             </div>
                         </div>
                     </div>

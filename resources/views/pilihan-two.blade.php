@@ -16,7 +16,7 @@
         <a href="jobseekers/signin">
             <button>Job Seeker</button>
         </a>
-        <a href="employer/signup">
+        <a href="employer/signin">
             <button>Employer</button>
         </a>
         <a href="/institutions/login">

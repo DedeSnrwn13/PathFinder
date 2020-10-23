@@ -1,10 +1,10 @@
 @extends('layouts.main')
-@section('title', 'Job Vacancy | Online Interview')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/jobvacancy.css') }}">
     <link rel="stylesheet" href="{{ asset('css/onlinetesting.css') }}">
     <link rel="stylesheet" href="{{ asset('css/set_date.css') }}">
 @endsection
+@section('title', 'Job Vacancy | Online Interview')
 
 @section('content')
 
@@ -100,44 +100,54 @@
                     <div class="row">
                         <div class="col-md-3">
                             <h5 class="text-center nama"><b>{{ $d->nama }}</b></h5>
-                            <p class="text-center nama">{{ $d->gender }} | {{ $d->usia }} yrs</p>
-                            <img class="profil" src="{{ asset('img/profil.png') }}" alt="">
-                            <p class="text-center" id="teks">Applied on {{ $d->created_at }}</p>
+                            <p class="text-center nama">{{ $d->gender }} | {{ \Carbon\Carbon::parse($d->tanggal_lahir)->diffForHumans(null, true) }}</p>
+                            <img class="profil mx-2 my-3" src="{{ $d->getAvatar() }}" alt="">
+                            <p class="text-center" id="teks">Applied on {{ \Carbon\Carbon::parse($d->created_at)->diffForHumans(null, false) }}</p>
                         </div>
-                        <div class="col-md-5 text-center">
+                        <div class="col-md-4 text-center">
                             <div class="set">
-                                <p><b>ONLINE TESTING</b></p>
+                                <p class="tag"><b>ONLINE TESTING</b></p>
                                 <p class="miring">Has not yet been scheduled</p>
                             </div>
 
                             <div class="set2">
-                                <p><b>ONLINE INTERVIEW</b></p>
+                                <p class="tag"><b>ONLINE INTERVIEW</b></p>
                                 <p class="miring">Has not yet been scheduled</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <button type="button" id="btn1" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#exampleModalset">
-                                SET SCHEDULED
-                            </button>
-                            <div class="dropdown">
-                                <button class="btn btn-sm btn-success dropdown-toggle dropdown-toggle-split" id="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    MOVE TO
-                                </button>
-                                <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item pointer" data-toggle="modal" data-target="#exampleModalinter" href="/employer/jobvacancy/onlineinterview">ONLINE INTERVIEW</a>
-                                    <a class="dropdown-item pointer" data-toggle="modal" data-target="#exampleModaltest" href="#">ONLINE TESTING</a>
-                                    <a class="dropdown-item" href="#">EMPLOYED</a>
-                                    <a class="dropdown-item" href="#">DROP</a>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm btn-set" data-toggle="modal" data-target="#exampleModalset">
+                                        SET SCHEDULED
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-sm dropdown-toggle dropdown-toggle-split" id="btn-move" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        MOVE TO
+                                    </button>
+                                    <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item pointer" data-toggle="modal" data-target="#exampleModalinter" href="/employer/jobvacancy/onlineinterview">ONLINE INTERVIEW</a>
+                                        <a class="dropdown-item pointer" data-toggle="modal" data-target="#exampleModaltest" href="#">ONLINE TESTING</a>
+                                        <a class="dropdown-item" href="#">EMPLOYED</a>
+                                        <a class="dropdown-item" href="#">DROP</a>
+                                    </div>
                                 </div>
                             </div>
-                                <p id="alamat">{{ $d->alamat }}</p>
-                                <img id="imglocation" src="{{ asset('img/location.png') }}" alt="">
-                                <p id="gaji">IDR {{ $d->mingaji }} - IDR {{ $d->maxgaji }}</p>
-                                <img id="imgsalary" src="{{ asset('img/salary.png') }}" alt="">
+                            <div class="row mt-3">
+                                <div class="col-md-12 text-right">
+                                    <span class="tgl-desk">Moved to Online Interview on 22 Sep 2019</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-right">
+                                    <span class="tgl-desk">Moved to Online Testing on 23 Sep 2019</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+</div>
 
 {{-- Set Schedule --}}
 <div class="modal fade modal-set" id="exampleModalset" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -113,6 +113,9 @@
  .modal-footer #pi {
      background-color: #FF8B6A;
      color: white;
+     border-radius: 20px;
+     height: 36px;
+     width: 100px;
  }
  
  .modal-body input {
@@ -120,6 +123,14 @@
      margin-top: -15px;
      margin-bottom: -10px;
      border-radius: 15px;
+ }
+ 
+ .modal-body .inputfile {
+     width: 100%;
+     float: left;
+     margin-top: 5%;
+     margin-left: 3%;
+     border-radius: 0px;
  }
  
  h5 a {
