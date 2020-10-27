@@ -4,13 +4,18 @@
     display: none !important;
 }
 
+.nav {
+    display: none;
+}
+
 #pills-profile-tab,
-#pills-mystudents-tab {
+#pills-mystudents-tab,
+#pills-dashboard-tab {
     display: none !important;
 }
 
-#pills-dashboard-tab {
-    background-color: #F28C71 !important;
-    border-radius: 10px;
-    color: white !important;
-}
+//  {
+//     background-color: #F28C71 !important;
+//     border-radius: 10px;
+//     color: white !important;
+// }

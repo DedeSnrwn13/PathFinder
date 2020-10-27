@@ -8,8 +8,8 @@
 
 @section('menu')
 <a class="nav-link active" href="{{ route('jobseekers.signin') }}">Job Seekers</a>
-<a class="nav-link" href="/employer/signin">Employers</a>
-<a class="nav-link " href="{{ route('landing') }}">Institutions</a>
+<a class="nav-link " href="{{ route('employer.signin') }}">Employers</a>
+<a class="nav-link" href="/institutions/login">Institutions</a>
 <a class="nav-link" href="/signup">Register</a>
 <a class="nav-link" href="/signin">Sign in</a>
 @endsection
@@ -47,7 +47,7 @@
                                 @enderror
                             </div>
                             <button type="submit" class="btn btn-secondary" id="btn_signin">SIGN IN</button>
-                            <small id="emailHelp" class="form-text text-center"><a href="/employer/signup">I don't have an account</a></small>
+                            {{-- <small id="emailHelp" class="form-text text-center"><a href="/employer/signup">I don't have an account</a></small> --}}
                         </form>
                     </div>
                 </div>
