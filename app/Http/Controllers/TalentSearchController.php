@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\DB;
 use App\Pelamar;
+use App\Pendidikan;
+use App\Pekerjaan;
 // use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -40,13 +42,20 @@ class TalentSearchController extends Controller
 
     public function cari(Request $request)
     {
+
         $cari = $request->cari;
-        $pelamar = \App\Pelamar::where('nama', 'like', "%".$cari."%")
-        ->orwhere('tanggal_lahir', 'like', "%".$cari."%")
-        ->orwhere('tempat_lahir', 'like', "%".$cari."%")
+        $pelamars = \App\Pelamar::where('nama', 'LIKE', '%'.$request->search.'%')
+        ->orWhere('email', 'LIKE', '%'.$request->search.'%')
+        ->orWhere('gender', 'LIKE', '%'.$request->search.'%')
+        ->orWhere('agama', 'LIKE', '%'.$request->search.'%')
+        ->orWhere('tempat_lahir', 'LIKE', '%'.$request->search.'%')
+        ->orWhere('tanggal_lahir', 'LIKE', '%'.$request->search.'%')
+        ->orWhere('pekerjaan_yang_akan_dilamar', 'LIKE', '%'.$request->search.'%')
         ->paginate(3);
 
-        return view('employer\talent_search\talentsearch', compact('pelamar'));
+        // $pendidikans = Pendidikan::where('nama_sekolah', 'like', "%".$cari."%")->paginate(3);
+
+        return view('employer.talent_search.talentsearch', compact('pelamars'));
     }
 
     /**

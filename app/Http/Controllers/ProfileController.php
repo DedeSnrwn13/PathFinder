@@ -128,12 +128,16 @@ class ProfileController extends Controller
 
     public function basic()
     {
-        return view('profile.basic');
+        $user = Auth::user();
+
+        return view('profile.basic', compact('user'));
     }
 
     public function advance()
     {
-        return view('profile.advan');
+        $user = Auth::user();
+
+        return view('profile.advan', compact('user'));
     }
 
     // employer

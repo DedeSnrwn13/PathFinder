@@ -27,7 +27,7 @@ class CreateInstitutionTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
 
         // Schema::table('institution', function (Blueprint $table) {

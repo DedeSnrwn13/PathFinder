@@ -41,7 +41,6 @@
 #drpdwn {
   border-radius: 20px;
   background-color: #439100 !important;
-  margin-left: 82%;
   margin-top: 3%;
 }
 
@@ -235,5 +234,91 @@
 
 #pills-tab {
   display: none;
+}
+
+.bsc {
+  width: 95%;
+  float: left;
+  margin-top: 2%;
+  padding: 30px;
+  border: 1px solid #FF8B6A;
+  border-radius: 20px;
+}
+
+.bsc span {
+  color: #FF8B6A;
+}
+
+.bsc .num {
+  margin-top: 25px;
+}
+
+.bsc .num .progress {
+  background-color: #525252;
+}
+
+.bsc .num .progress .progress-bar {
+  background-color: #6CDD0B;
+}
+
+.bsc .base {
+  margin-top: 25px;
+}
+
+.bsc .base .progress {
+  background-color: #525252;
+}
+
+.bsc .base .progress .progress-bar {
+  background-color: #4B9EF0;
+}
+
+.adv {
+  width: 95%;
+  float: left;
+  margin-top: 2%;
+  padding: 30px;
+  border: 1px solid #FF8B6A;
+  border-radius: 20px;
+}
+
+.adv span {
+  color: #FF8B6A;
+}
+
+.adv .algo {
+  margin-top: 25px;
+}
+
+.adv .algo .progress {
+  background-color: #525252;
+}
+
+.adv .algo .progress .progress-bar {
+  background-color: #6CDD0B;
+}
+
+.adv .stat {
+  margin-top: 25px;
+}
+
+.adv .stat .progress {
+  background-color: #525252;
+}
+
+.adv .stat .progress .progress-bar {
+  background-color: #A5A5A5;
+}
+
+.adv .ave {
+  margin-top: 35px;
+}
+
+.adv .ave .progress {
+  background-color: #525252;
+}
+
+.adv .ave .progress .progress-bar {
+  background-color: #6CDD0B;
 }
 

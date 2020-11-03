@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:institution']], function() {
     Route::get('/institutions/dashboard/add', 'SiswaController@add');
     Route::post('/institutions/dashboard/postcreate', 'SiswaController@postcreate')->name('institution.create.applicant.data');
     Route::get('/institutions/dashboard/{pelamar}/edit', 'SiswaController@edit');
-    Route::put('/institutions/dashboard/{pelamar}/update', 'SiswaController@update')->name('student.update');
+    Route::post('/institutions/dashboard/{pelamar}/update', 'SiswaController@update');
     Route::get('/institutions/dashboard/{pelamar}/delete', 'SiswaController@delete');
 
     //logout
@@ -129,7 +129,7 @@ Route::get('/employer/signin', 'EmployerAuthController@getLogin')->name('employe
 Route::post('/postlogin', 'EmployerAuthController@postlogin');
 
 Route::get('/employer/signup', 'EmployerAuthController@getRegister');
-    Route::post('/employer/signup', 'EmployerAuthController@postRegister');
+Route::post('/employer/signup', 'EmployerAuthController@postRegister');
 
 // login system employers
 Route::group(['middleware' => ['auth', 'CheckRole:employer']], function() {

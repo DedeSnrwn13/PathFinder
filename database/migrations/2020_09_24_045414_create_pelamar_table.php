@@ -31,16 +31,10 @@ class CreatePelamarTable extends Migration
             $table->string('pekerjaan_yang_akan_dilamar');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan');
-            $table->foreign('pendidikan_id')->references('id')->on('pendidikan');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('pendidikan_id')->references('id')->on('pendidikan')->onDelete('cascade')->onUpdate('cascade');
         });
-
-        // Schema::table('pelamar', function (Blueprint $table) {
-        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-        //     $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan')->onDelete('cascade')->onUpdate('cascade');
-        //     $table->foreign('pendidikan_id')->references('id')->on('pendidikan')->onDelete('cascade')->onUpdate('cascade');
-        // });
     }
 
     /**

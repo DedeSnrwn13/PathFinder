@@ -93,38 +93,59 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="hobbybox">
-                <div class="title">
-                    <span>Advanced Assessment</span>
-                </div>
-                <div class="algorithm">
-                    <span class="algo">Algorithm</span>
-                    <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="89" min="0" max="100">
-                        <span class="range-slider__value">0</span>
+            <div class="adv">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span>Advanced Assessment</span>
                     </div>
-                    <span class="nilai">G</span>
                 </div>
-                <div class="statistics">
-                    <span class="stati">Statistics</span>
-                    <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="45" min="0" max="100">
-                        <span class="range-slider__value">0</span>
+                <div class="row algo">
+                    <div class="col-md-2">
+                        Algorithm
                     </div>
-                    <span class="nilai">B</span>
+                    <div class="col-md-8">
+                        <div class="progress mt-1">
+                            <div class="progress-bar" style="width: 89%;" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100">89%</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 bg-success rounded text-center">
+                        <h5 class="text-white mb-0">G</h5>
+                    </div>
                 </div>
-                <hr>
-                <hr>
-                <div class="average">
-                    <span class="ave">Statistics</span>
-                    <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="67" min="0" max="100">
-                        <span class="range-slider__value">0</span>
+                <div class="row stat">
+                    <div class="col-md-2">
+                        Statistics
                     </div>
-                    <span class="nilai">B</span>
+                    <div class="col-md-8">
+                        <div class="progress mt-1">
+                            <div class="progress-bar" style="width: 45%;" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 rounded text-center" style="background:#A5A5A5;">
+                        <h5 class="text-white mb-0">B</h5>
+                    </div>
+                </div>
+
+                <div class="mt-4" style="height: 2px; background: rgba(0,0,0,.6);"></div>
+                <div class="mt-1" style="height: 2px; background: rgba(0,0,0,.6);"></div>
+
+                <div class="row ave">
+                    <div class="col-md-2">
+                        Average
+                    </div>
+                    <div class="col-md-8">
+                        <div class="progress mt-1">
+                            <div class="progress-bar" style="width: 67%;" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100">67%</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 rounded text-center" style="background:#6CDD0B;">
+                        <h5 class="text-white mb-0">B</h5>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

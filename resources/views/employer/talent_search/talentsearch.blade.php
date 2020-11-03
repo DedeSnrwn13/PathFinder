@@ -32,7 +32,7 @@
                 <div class="col-md-10">
                     <form method="get" action="/employer/talentsearch/cari">
                         <div class="form-bg">
-                            <input class="form-control" type="search" name="cari" value="{{ old('cari') }}" placeholder="Search by Name, Institution Name, or Job Title" aria-label="Search">
+                            <input class="form-control" type="search" name="cari" value="{{ old('cari') }}" placeholder="Search by Name, gender, email" aria-label="Search">
                         </div>
                     </form>
                 </div>

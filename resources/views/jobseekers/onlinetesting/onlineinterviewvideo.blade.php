@@ -1,5 +1,7 @@
-@extends("layouts.navbar")
-<link rel="stylesheet" href="{{ asset('css/onlineinterviewvideo.css') }}">
+@extends('layouts.navbar')
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/onlineinterviewvideo.css') }}">
+@endsection
 @section('title', 'Online Interview')
 
 @section('content')

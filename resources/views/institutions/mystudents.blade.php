@@ -93,7 +93,7 @@
                         <td>{{ $dasis->pekerjaan_yang_akan_dilamar }}</td>
                         <td>
                             <a href="/institutions/dashboard/{{ $dasis->id }}/edit" class="btn btn-warning btn-sm edit float-left">Edit</a>
-                            <a rel="{{ $dasis->id }}" rel1="delete" href="javascript:" class="btn btn-danger btn-sm del float-right" pelamar-id="{{ $dasis->id }}" id="deletePelamar">Delete</a>
+                            <a href="#" class="btn btn-danger btn-sm del float-right" pelamar-id="{{ $dasis->id }}">Delete</a>
                         </td>
                     </tr>
                     @php
@@ -251,57 +251,52 @@
 
 @section('footer')
 <script>
-    // $(document).ready(function() {
-    //     $('.popup-close').click(function(){
-    //         $('.popup-area').removeClass('popup-actived');
-    //     });
-    //     // $('#datatable').DataTable({
-    //     //     processing: true,
-    //     //     serverside: true,
-    //     //     responsive: true,
-    //     //     ajax: "{{ route('ajax.get.data.siswa') }}",
-    //     //     columns: [
-    //     //         {data: 'institution_id', name:'institution_id'},
-    //     //         {data: 'avatar', name:'avatar'},
-    //     //         {data: 'firstname', name:'firstname'},
-    //     //         {data: 'firstname', name:'firstname'},
-    //     //         {data: 'email', name:'email'},
-    //     //         {data: 'gender', name:'gender'},
-    //     //         {data: 'religion', name:'religion'},
-    //     //         {data: 'address', name:'address'},
-    //     //         {data: 'major', name:'major'},
-    //     //         {data: 'major_average', name:'major_average'},
-    //     //         {data: 'age', name:'age'},
-    //     //         {data: 'expertise', name:'expertise'},
-    //     //         {data: 'experience', name:'experience'},
-    //     //         {data: 'action', name:'action'},
-    //     //     ]
-    //     // });
+    $(document).ready(function() {
+        $('.popup-close').click(function(){
+            $('.popup-area').removeClass('popup-actived');
+        });
+        // $('#datatable').DataTable({
+        //     processing: true,
+        //     serverside: true,
+        //     responsive: true,
+        //     ajax: "{{ route('ajax.get.data.siswa') }}",
+        //     columns: [
+        //         {data: 'institution_id', name:'institution_id'},
+        //         {data: 'avatar', name:'avatar'},
+        //         {data: 'firstname', name:'firstname'},
+        //         {data: 'firstname', name:'firstname'},
+        //         {data: 'email', name:'email'},
+        //         {data: 'gender', name:'gender'},
+        //         {data: 'religion', name:'religion'},
+        //         {data: 'address', name:'address'},
+        //         {data: 'major', name:'major'},
+        //         {data: 'major_average', name:'major_average'},
+        //         {data: 'age', name:'age'},
+        //         {data: 'expertise', name:'expertise'},
+        //         {data: 'experience', name:'experience'},
+        //         {data: 'action', name:'action'},
+        //     ]
+        // });
 
 
-    //     $('.del').click(function() {
-    //         var pelamar_id = $(this).attr('pelamar-id');
+        $('.del').click(function() {
+            var pelamar_id = $(this).attr('pelamar-id');
 
-    //         swal({
-    //             title: "Are you sure?",
-    //             text: "Want to delete student data with id "+ pelamar_id +" ?",
-    //             icon: "warning",
-    //             buttons: true,
-    //             dangerMode: true,
-    //         })
-    //         .then((willDelete) => {
-    //             if (willDelete) {
-    //                 window.location = "/institutions/dashboard/"+pelamar_id+"/delete";
-    //             }
-    //         });
-    //     });
-    // });
-        $(document).ready(function(){
-            $('#deletePelamar').click(function(){
-                var id = $(this).attr('rel');
-                var deleteFunction = $(this).attr('rel1');
+            swal({
+                title: "Are you sure?",
+                text: "Want to delete student data with id "+ pelamar_id +" ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "/institutions/dashboard/"+pelamar_id+"/delete";
+                }
             });
         });
+    });
+
 
 </script>
 @endsection

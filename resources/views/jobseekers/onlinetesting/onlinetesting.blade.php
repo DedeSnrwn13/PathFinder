@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="container">
-    <div class="card">
+    <div class="card p-5">
         <h1 class="text-center">Online Testing</h1>
         <div class="br"></div>
         <p>Prinsip kerja bubble sort adalah sebagai berikut, kecuali</p>
@@ -42,7 +42,7 @@
         <div class="button">
 
             <button type="button" class="btn btn-outline-secondary kiri btn-lg"><b>PREVIOUS</b></button>
-            <a href="onlinetestingresult"><button type="button" class="btn btn-secondary kanan btn-lg"><b>NEXT</b></button></a>
+            <a href="/jobseeker/online-testing-result"><button type="button" class="btn btn-secondary kanan btn-lg"><b>NEXT</b></button></a>
         </div>
     </div>
 </div>

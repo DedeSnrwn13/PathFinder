@@ -167,108 +167,51 @@ class SiswaController extends Controller
 
     public function update(Request $request, Pelamar $pelamar)
     {
-        // dd($request->all());
-        // $siswa = \App\Siswa::find($id);
-         //insert ke table user
-         $this->validate($request, [
-            'avatar'                     => 'file|image|mimes:png,jpg,jpeg|max:2048',
+        // $this->validate($request, [
+        //     'avatar'                     => 'file|image|mimes:png,jpg,jpeg|max:2048',
+        //     'nama'                       => 'required|string|min:2|max:25',
+        //     'tempat_lahir'               => 'required|string|max:25',
+        //     'tanggal_lahir'              => 'required|date|max:25',
+        //     'gender'                     => 'nullable|string|max:10',
+        //     'agama'                      => 'nullable|string|max:20',
+        //     'email'                      => 'required|email|unique:users|max:100',
+        //     'agama'                      => 'nullable|string|max:20',
+        //     'mingaji'                    => 'required|string',
+        //     'maxgaji'                    => 'required|string',
+        //     'pekerjaan_yang_akan_dilamar' => 'required|string|max:50',
+        //     'nama_depan'                 => 'required|string|min:2|max:25',
+        //     'nama_belakang'              => 'nullable|tring|min:2|max:25',
+        //     'email'                      => 'required|email|unique:users|max:100',
+        //     'created_by'                 => 'required|string|max:25',
+        //     'updated_by'                 => 'required_with:created_by|same:created_by|string|max:25',
+        //     'nama_perusahaan'            => 'nullable|string|max:50',
+        //     'jabatan'                    => 'nullable|string|max:50',
+        //     'mulai_kerja'                => 'nullable|date|max:25',
+        //     'berakhir_kerja'             => 'nullable|date|max:25',
+        //     'nama_sekolah'               => 'required|string|max:100',
+        //     'jenjang_pendidikan'         => 'required|string|max:5',
+        //     'jurusan'                    => 'required|string|max:50',
+        //     'nilai'                      => 'required|numeric',
+        //     'mulai_pendidikan'           => 'required|date|max:25',
+        //     'selesai_pendidikan'         => 'required|date|max:25',
+        // ]);
+
+        $this->validate($request, [
+            'avatar'                     => 'nullable|file|image|mimes:png,jpg,jpeg|max:2048',
             'nama'                       => 'required|string|min:2|max:25',
             'tempat_lahir'               => 'required|string|max:25',
             'tanggal_lahir'              => 'required|date|max:25',
             'gender'                     => 'nullable|string|max:10',
             'agama'                      => 'nullable|string|max:20',
-            'alamat'                     => 'required|string|max:100',
-            'email'                      => 'required|email|unique:users|max:100',
             'agama'                      => 'nullable|string|max:20',
-            'pekerjaan_id'               => 'required|integer',
-            'pendidikan_id'              => 'required|integer',
             'mingaji'                    => 'required|string',
             'maxgaji'                    => 'required|string',
             'pekerjaan_yang_akan_dilamar' => 'required|string|max:50',
-            'nama_depan'                 => 'required|string|min:2|max:25',
-            'nama_belakang'              => 'nullable|tring|min:2|max:25',
-            'email'                      => 'required|email|unique:users|max:100',
-            'created_by'                 => 'required|string|max:25',
-            'updated_by'                 => 'required_with:created_by|same:created_by|string|max:25',
-            'nama_perusahaan'            => 'nullable|string|max:50',
-            'jabatan'                    => 'nullable|string|max:50',
-            'mulai_kerja'                => 'nullable|date|max:25',
-            'berakhir_kerja'             => 'nullable|date|max:25',
-            'nama_sekolah'               => 'required|string|max:100',
-            'jenjang_pendidikan'         => 'required|string|max:5',
-            'jurusan'                    => 'required|string|max:50',
-            'nilai'                      => 'required|numeric',
-            'mulai_pendidikan'           => 'required|date|max:25',
-            'selesai_pendidikan'         => 'required|date|max:25',
         ]);
 
-        // $pelamar->update($request->all());
-
-        DB::table('users')->where('id', $pelamar->users->id)->update([
-            'nama_depan'       => $request->nama,
-            'created_by'       => $request->created_by,
-            'created_date'     => date("Y-m-d H:i:s"),
-            'updated_by'       => $request->updated_by,
-            'updated_date'     => date("Y-m-d H:i:s"),
-        ]);
-
-        DB::table('pendidikan')->where('id', $pelamar->pendidikan->id)->update([
-            'nama_sekolah'       => $request->nama_sekolah,
-            'jenjang_pendidikan' => $request->jenjang_pendidikan,
-            'jurusan'            => $request->jurusan,
-            'nilai'              => $request->nilai,
-            'mulai_pendidikan'   => $request->mulai_pendidikan,
-            'selesai_pendidikan' => $request->selesai_pendidikan,
-        ]);
-
-        DB::table('pekerjaan')->where('id', $pelamar->pekerjaan->id)->update([
-            'nama_perusahaan' => $request->nama_perusahaan,
-            'posisi'          => $request->posisi,
-            'mulai_kerja'     => $request->mulai_kerja,
-            'berakhir_kerja'  => $request->berakhir_kerja,
-        ]);
-
-        DB::table('pelamar')->where('id', $pelamar->id)->update([
-            'nama'                        => $request->nama,
-            'gender'                      => $request->gender,
-            'tempat_lahir'                => $request->tempat_lahir,
-            'tanggal_lahir'               => $request->tanggal_lahir,
-            'agama'                       => $request->agama,
-            'mingaji'                     => $request->mingaji,
-            'maxgaji'                     => $request->maxgaji,
-            'pekerjaan_yang_akan_dilamar' => $request->pekerjaan_yang_akan_dilamar,
-        ]);
-
-
-        // $pendidikan = Pendidikan::findOrFail();
-        // $pendidikan = new Pendidikan;
-        // // $pendidikan = new \App\Pendidikan;
-        // $pendidikan->nama_sekolah       = $request->nama_sekolah;
-        // $pendidikan->jenjang_pendidikan = $request->jenjang_pendidikan;
-        // $pendidikan->jurusan            = $request->jurusan;
-        // $pendidikan->nilai              = $request->nilai;
-        // $pendidikan->mulai_pendidikan   = $request->mulai_pendidikan;
-        // $pendidikan->selesai_pendidikan = $request->selesai_pendidikan;
-        // $pendidikan->save();
-
-
-        // $pekerjaan = new Pekerjaan;
-        // $pekerjaan->nama_perusahaan = $request->nama_perusahaan;
-        // $pekerjaan->posisi          = $request->posisi;
-        // $pekerjaan->mulai_kerja     = $request->mulai_kerja;
-        // $pekerjaan->berakhir_kerja  = $request->berakhir_kerja;
-        // $pekerjaan->save();
-
-        // $pelamar->nama                        = $request->nama;
-        // $pelamar->gender                      = $request->gender;
-        // $pelamar->tempat_lahir                = $request->tempat_lahir;
-        // $pelamar->tanggal_lahir               = $request->tanggal_lahir;
-        // $pelamar->agama                       = $request->agama;
-        // $pelamar->mingaji                     = $request->mingaji;
-        // $pelamar->maxgaji                     = $request->maxgaji;
-        // $pelamar->pekerjaan_yang_akan_dilamar = $request->pekerjaan_yang_akan_dilamar;
-
-        // $pekerjaan->update($request->all());
+        // dd($request->all());
+        // $siswa = \App\Siswa::find($id);
+        $pelamar->update($request->all());
 
         if($request->hasFile('avatar')) {
             $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
@@ -277,12 +220,136 @@ class SiswaController extends Controller
         }
 
 
-        return redirect()->route('/institutions/dashboard');
+        return redirect('/institutions/dashboard')->with('sukses','Data berhasil di update');
     }
+
+    // public function update(Request $request, Pelamar $pelamar)
+    // {
+    //     // dd($request->all());
+    //     // $siswa = \App\Siswa::find($id);
+    //      //insert ke table user
+    //     $this->validate($request, [
+    //         'avatar'                     => 'file|image|mimes:png,jpg,jpeg|max:2048',
+    //         'nama'                       => 'required|string|min:2|max:25',
+    //         'tempat_lahir'               => 'required|string|max:25',
+    //         'tanggal_lahir'              => 'required|date|max:25',
+    //         'gender'                     => 'nullable|string|max:10',
+    //         'agama'                      => 'nullable|string|max:20',
+    //         'alamat'                     => 'required|string|max:100',
+    //         'email'                      => 'required|email|unique:users|max:100',
+    //         'agama'                      => 'nullable|string|max:20',
+    //         'pekerjaan_id'               => 'required|integer',
+    //         'pendidikan_id'              => 'required|integer',
+    //         'mingaji'                    => 'required|string',
+    //         'maxgaji'                    => 'required|string',
+    //         'pekerjaan_yang_akan_dilamar' => 'required|string|max:50',
+    //         'nama_depan'                 => 'required|string|min:2|max:25',
+    //         'nama_belakang'              => 'nullable|tring|min:2|max:25',
+    //         'email'                      => 'required|email|unique:users|max:100',
+    //         'created_by'                 => 'required|string|max:25',
+    //         'updated_by'                 => 'required_with:created_by|same:created_by|string|max:25',
+    //         'nama_perusahaan'            => 'nullable|string|max:50',
+    //         'jabatan'                    => 'nullable|string|max:50',
+    //         'mulai_kerja'                => 'nullable|date|max:25',
+    //         'berakhir_kerja'             => 'nullable|date|max:25',
+    //         'nama_sekolah'               => 'required|string|max:100',
+    //         'jenjang_pendidikan'         => 'required|string|max:5',
+    //         'jurusan'                    => 'required|string|max:50',
+    //         'nilai'                      => 'required|numeric',
+    //         'mulai_pendidikan'           => 'required|date|max:25',
+    //         'selesai_pendidikan'         => 'required|date|max:25',
+    //     ]);
+
+    //     // $pelamar->update($request->all());
+
+    //     // DB::table('users')->where('id', $pelamar->users->id)->update([
+    //     //     'nama_depan'       => $request->nama,
+    //     //     'created_by'       => $request->created_by,
+    //     //     'created_date'     => date("Y-m-d H:i:s"),
+    //     //     'updated_by'       => $request->updated_by,
+    //     //     'updated_date'     => date("Y-m-d H:i:s"),
+    //     // ]);
+
+    //     // DB::table('pendidikan')->where('id', $pelamar->pendidikan->id)->update([
+    //     //     'nama_sekolah'       => $request->nama_sekolah,
+    //     //     'jenjang_pendidikan' => $request->jenjang_pendidikan,
+    //     //     'jurusan'            => $request->jurusan,
+    //     //     'nilai'              => $request->nilai,
+    //     //     'mulai_pendidikan'   => $request->mulai_pendidikan,
+    //     //     'selesai_pendidikan' => $request->selesai_pendidikan,
+    //     // ]);
+
+    //     // DB::table('pekerjaan')->where('id', $pelamar->pekerjaan->id)->update([
+    //     //     'nama_perusahaan' => $request->nama_perusahaan,
+    //     //     'posisi'          => $request->posisi,
+    //     //     'mulai_kerja'     => $request->mulai_kerja,
+    //     //     'berakhir_kerja'  => $request->berakhir_kerja,
+    //     // ]);
+
+    //     // DB::table('pelamar')->where('id', $pelamar->id)->update([
+    //     //     'nama'                        => $request->nama,
+    //     //     'gender'                      => $request->gender,
+    //     //     'tempat_lahir'                => $request->tempat_lahir,
+    //     //     'tanggal_lahir'               => $request->tanggal_lahir,
+    //     //     'agama'                       => $request->agama,
+    //     //     'mingaji'                     => $request->mingaji,
+    //     //     'maxgaji'                     => $request->maxgaji,
+    //     //     'pekerjaan_yang_akan_dilamar' => $request->pekerjaan_yang_akan_dilamar,
+    //     // ]);
+
+    //     $user = User::find('id', $pelamar->users->id);
+    //     $user->nama_depan   = $request->nama;
+    //     $user->created_by   = $request->created_by;
+    //     $user->created_date = date("Y-m-d H:i:s");
+    //     $user->updated_by   = $request->updated_by;
+    //     $user->updated_date = date("Y-m-d H:i:s");
+    //     $user->save();
+
+
+    //     $pendidikan = Pendidikan::find('id', $pelamar->pendidikan->id);
+    //     $pendidikan->nama_sekolah       = $request->nama_sekolah;
+    //     $pendidikan->jenjang_pendidikan = $request->jenjang_pendidikan;
+    //     $pendidikan->jurusan            = $request->jurusan;
+    //     $pendidikan->nilai              = $request->nilai;
+    //     $pendidikan->mulai_pendidikan   = $request->mulai_pendidikan;
+    //     $pendidikan->selesai_pendidikan = $request->selesai_pendidikan;
+    //     $pendidikan->save();
+
+
+    //     $pekerjaan = Pekerjaan::find('id', $pelamar->pekerjaan->id);
+    //     $pekerjaan->nama_perusahaan = $request->nama_perusahaan;
+    //     $pekerjaan->posisi          = $request->posisi;
+    //     $pekerjaan->mulai_kerja     = $request->mulai_kerja;
+    //     $pekerjaan->berakhir_kerja  = $request->berakhir_kerja;
+    //     $pekerjaan->save();
+
+    //     $pelamar->nama                        = $request->nama;
+    //     $pelamar->gender                      = $request->gender;
+    //     $pelamar->tempat_lahir                = $request->tempat_lahir;
+    //     $pelamar->tanggal_lahir               = $request->tanggal_lahir;
+    //     $pelamar->agama                       = $request->agama;
+    //     $pelamar->mingaji                     = $request->mingaji;
+    //     $pelamar->maxgaji                     = $request->maxgaji;
+    //     $pelamar->pekerjaan_yang_akan_dilamar = $request->pekerjaan_yang_akan_dilamar;
+    //     $pelamar->save();
+    //     // $pekerjaan->update($request->all());
+
+    //     if($request->hasFile('avatar')) {
+    //         $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
+    //         $pelamar->avatar = $request->file('avatar')->getClientOriginalName();
+    //         $pelamar->save();
+    //     }
+
+
+    //     return redirect('/institutions/dashboard');
+    // }
 
     public function delete(Pelamar $pelamar)
     {
         // $siswa = \App\Siswa::find($id);
+        $pelamar->user()->delete();
+        $pelamar->pekerjaan()->delete();
+        $pelamar->pendidikan()->delete();
         $pelamar->delete();
 
         return redirect('/institutions/dashboard')->with('sukses','Data berhasil di delete');

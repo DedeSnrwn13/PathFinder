@@ -74,25 +74,39 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="hobbybox">
-                <div class="title">
-                    <span>Basic Assessment</span>
-                </div>
-                <div class="numeric">
-                    <span class="num">Numeric</span>
-                    <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="76" min="0" max="100">
-                        <span class="range-slider__value">0</span>
+            <div class="bsc">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span>Basic Assessment</span>
                     </div>
-                    <span class="nilai">G</span>
                 </div>
-                <div class="basic">
-                    <span class="eng">Basic English</span>
-                    <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="97" min="0" max="100">
-                        <span class="range-slider__value">0</span>
+                <div class="row num">
+                    <div class="col-md-2">
+                        Numeric
                     </div>
-                    <span class="nilai">E</span>
+                    <div class="col-md-8">
+                        <div class="progress mt-1">
+                            <div class="progress-bar" style="width: 76%;" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">76%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 offset"></div>
+                    <div class="col-md-1 bg-success rounded text-center">
+                        <h5 class="text-white mb-0">G</h5>
+                    </div>
+                </div>
+                <div class="row base">
+                    <div class="col-md-2">
+                        Basic English
+                    </div>
+                    <div class="col-md-8">
+                        <div class="progress mt-1">
+                            <div class="progress-bar" style="width: 96%;" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100">96%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 offset"></div>
+                    <div class="col-md-1 rounded text-center" style="background: #4B9EF0;">
+                        <h5 class="text-white mb-0">E</h5>
+                    </div>
                 </div>
             </div>
         </div>

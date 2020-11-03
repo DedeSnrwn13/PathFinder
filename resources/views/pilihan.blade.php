@@ -12,14 +12,11 @@
 <div class="container">
     <a href="/" class="text-decoration-none"><h1><b>Path</b>Finder</h1></a>
         <p><b>Account Register As:</b></p>
-    <div class="row pilihan">
-        <a href="jobseekers/signin">
-            <button>Job Seeker</button>
-        </a>
-        <a href="employer/signup">
+    <div class="row justify-content-center pilihan2">
+        <a id="regisemp" href="employer/signup" class="mr-4">
             <button>Employer</button>
         </a>
-        <a href="/institutions/register">
+        <a id="regisins" href="/institutions/register" class="ml-2">
             <button>Institution</button>
         </a>
     </div>

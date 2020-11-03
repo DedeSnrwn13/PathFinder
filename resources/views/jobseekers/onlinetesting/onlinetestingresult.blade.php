@@ -1,5 +1,7 @@
 @extends("layouts.navbar")
-<link rel="stylesheet" href="{{ asset('css/onlinetestingresult.css') }}">
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/onlinetestingresult.css') }}">
+@endsection
 @section('title', 'Online Testing Result')
 
 @section('content')
@@ -43,7 +45,7 @@
         </section>
 
         <div class="button">
-            <button type="button" class="btn btn-primary ok btn-lg"><b>OK</b></button>
+            <button type="button" class="btn btn-primary ok btn-lg"><b><a href="/jobseeker/online-interview" class="text-white text-decoration-none">OK</a></b></button>
         </div>
     </div>
 </div>
