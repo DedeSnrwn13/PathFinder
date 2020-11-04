@@ -43,14 +43,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
+                {{-- <div class="col-md-2">
                     <!-- Button trigger modal -->
                         <a href="/institutions/dashboard/add">
                             <button type="button" class="btn btn-primary float-right tambah">
                                 Tambah Data
                             </button>
                         </a>
-                </div>
+                </div> --}}
             </div>
             <br>
             <table class="table table-striped table-bordered table-hover tabel" id="datatable" style="width: 100%;">
